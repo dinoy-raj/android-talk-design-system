@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DemoSlide — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+DemoSlide (Slides) — Demo section break
+The demo break: a giant white "Demo N" bleeding off the bottom of a green slide, a lime caption pill riding on it, and a model chip top-right.
+
+**Consumer provides:** the demo number, a one-line caption (with one emoji at the start and one `blue` highlight), and an optional chip (model or version).
+
+- `green` ground; "Demo N" in `demo-numeral` (560px, 700) `on-green`, left-aligned at the edge, cropped by the bottom so roughly the top 55% shows.
+- Caption: `dr-pill` — `lime`, 124px tall, `pill-caption` text in `ink`, centred, its bottom overlapping the numeral's cap line.
+- Chip: `green-tint` pill, 16px, top-right.
+- Number demos sequentially across the talk.
+-->
+<div class="dr-stage"><div class="dr-slide is-green">
+
+<span class="dr-chip">Gemma 3n 2B</span>
+<div style="position:absolute;left:0;right:0;top:640px;display:flex;justify-content:center"><span class="dr-pill">&#127939; Running <span class="hl-blue" style="font-weight:700">Gemma</span> Models Directly On Android App</span></div>
+<div style="position:absolute;left:-30px;top:700px;font-size:560px;line-height:.8;font-weight:700;letter-spacing:-.02em;color:var(--on-green);white-space:nowrap">Demo 1</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ResourcesSlide — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+ResourcesSlide (Content) — Links and QR
+Where to go next: 3–5 links as soft pills with a type badge, plus one QR that collects them.
+
+**Consumer provides:** per link a type (Docs, Code, Models, Slides, Video), a title and a short URL; one QR image.
+
+- Rows: 128px `radius-pill` bands alternating `green-tint` / `blue-tint` (`gray-row` for the least important); a `dr-badge` for the type; title 32px/500 `ink`; URL 22px `blue`.
+- QR in a white outlined card (`radius-card`, 2px `card-border`) on the right with a 26px `ink-muted` caption.
+- Shorten URLs to the readable part; the QR carries the full links.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Resources</span>
+<div style="position:absolute;left:128px;top:220px;width:1000px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;align-items:center;gap:32px;height:128px;padding:0 40px;border-radius:999px;background:var(--green-tint)"><span class="dr-badge is-green" style="height:48px;font-size:22px">Docs</span><div><div style="font-size:32px;font-weight:500">LLM Inference guide for Android</div><div style="font-size:22px;color:var(--blue)">ai.google.dev/edge/mediapipe</div></div></div><div style="display:flex;align-items:center;gap:32px;height:128px;padding:0 40px;border-radius:999px;background:var(--blue-tint)"><span class="dr-badge is-blue" style="height:48px;font-size:22px">Code</span><div><div style="font-size:32px;font-weight:500">Sample app from this talk</div><div style="font-size:22px;color:var(--blue)">github.com/your-handle/demo</div></div></div><div style="display:flex;align-items:center;gap:32px;height:128px;padding:0 40px;border-radius:999px;background:var(--green-tint)"><span class="dr-badge is-green" style="height:48px;font-size:22px">Models</span><div><div style="font-size:32px;font-weight:500">Gemma models on Hugging Face</div><div style="font-size:22px;color:var(--blue)">huggingface.co/google</div></div></div><div style="display:flex;align-items:center;gap:32px;height:128px;padding:0 40px;border-radius:999px;background:var(--gray-row)"><span class="dr-badge is-muted" style="height:48px;font-size:22px">Slides</span><div><div style="font-size:32px;font-weight:500">This deck</div><div style="font-size:22px;color:var(--blue)">your-link/slides</div></div></div>
+</div>
+<div style="position:absolute;right:160px;top:240px;width:520px;height:600px;border-radius:32px;border:2px solid var(--card-border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px">
+<div style="width:360px;height:360px;border-radius:24px;background:repeating-conic-gradient(var(--ink-soft) 0 25%, transparent 0 50%) 0 0/36px 36px;opacity:.25"></div>
+<div style="font-size:26px;color:var(--ink-muted)">Scan for all links</div></div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

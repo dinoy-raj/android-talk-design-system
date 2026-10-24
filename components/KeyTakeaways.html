@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KeyTakeaways — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+KeyTakeaways (Content) — Recap with checks
+The recap before the closing slide: three statements, each behind a lime check disc.
+
+**Consumer provides:** 3 (max 4) one-line takeaways, each with 1–2 highlights.
+
+- 88px `dr-check` discs (`lime` with a `green` tick); statements at 48/64 with `blue`/`green` highlights; 64px between rows.
+- One line each; if it wraps, cut words.
+- Place immediately before `ClosingSlide`. Same content can open the talk as a promise ("By the end you'll…").
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Key Takeaways</span>
+<div style="position:absolute;left:200px;top:250px;width:1500px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px">Keep inference <span class="hl-green">on device</span>: faster, private, offline</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px"><span class="hl-blue">Quantize</span> before you ship: smaller, faster, cheaper</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px">Use <span class="hl-blue">LoRA</span> to specialise a <span class="hl-green">tiny model</span> for your domain</div></div>
+</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

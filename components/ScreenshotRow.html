@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ScreenshotRow — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+ScreenshotRow (Content) — Phone screens with captions
+A row of 2–4 phone screenshots, each on a tinted panel with a title and a one-line caption.
+
+**Consumer provides:** the screenshots (portrait PNGs), a 1–3 word title and a short caption for each.
+
+- Panels 820px tall, `radius-code`, cycling `green-tint`, `blue-tint`, `gray-row`, `blue-panel`.
+- Title 30px/500 `ink`, caption 22/30 `ink-muted`, centred above the phone.
+- Phone: `dr-phone` frame (10px `code-bg` bezel, 44px radius) holding the screenshot; it may bleed off the bottom of the panel.
+- Two screens: make the panels wider and put a `dr-cap` green caption pill under each instead of the title.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Google AI Edge Gallery</span>
+<div style="position:absolute;left:128px;right:128px;top:190px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px">
+<div style="height:820px;border-radius:24px;background:var(--green-tint);display:flex;flex-direction:column;align-items:center;padding-top:36px"><div style="font-size:30px;font-weight:500">Ask Image</div><div style="font-size:22px;line-height:30px;color:var(--ink-muted);text-align:center;margin:8px 32px 32px">Describe and identify objects</div><div class="dr-phone"></div></div><div style="height:820px;border-radius:24px;background:var(--blue-tint);display:flex;flex-direction:column;align-items:center;padding-top:36px"><div style="font-size:30px;font-weight:500">AI Chat</div><div style="font-size:22px;line-height:30px;color:var(--ink-muted);text-align:center;margin:8px 32px 32px">Multi-turn conversations</div><div class="dr-phone"></div></div><div style="height:820px;border-radius:24px;background:var(--gray-row);display:flex;flex-direction:column;align-items:center;padding-top:36px"><div style="font-size:30px;font-weight:500">Prompt Lab</div><div style="font-size:22px;line-height:30px;color:var(--ink-muted);text-align:center;margin:8px 32px 32px">Single-turn use cases</div><div class="dr-phone"></div></div><div style="height:820px;border-radius:24px;background:var(--blue-panel);display:flex;flex-direction:column;align-items:center;padding-top:36px"><div style="font-size:30px;font-weight:500">Audio Scribe</div><div style="font-size:22px;line-height:30px;color:var(--ink-muted);text-align:center;margin:8px 32px 32px">Transcribe on device</div><div class="dr-phone"></div></div>
+</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

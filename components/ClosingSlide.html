@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClosingSlide — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+ClosingSlide (Slides) — Thankyou + QR
+The last slide: "Thankyou." in giant white type on green with a lime period, and a QR code to connect.
+
+**Consumer provides:** the QR image (your connect link) and, for the demo variant, the recording link QR.
+
+- `green` ground; word in `closing` (180px/700) `on-green`, period in `lime`; subtitle in `subtitle` (48/56) `on-green`.
+- QR on the right half, ~500px, styled with rounded dots in light gray/white; caption 22px "Scan to connect with me 😎".
+- "Thankyou." is written as one word with the lime period — keep it as the signature sign-off.
+- Demo variant: "Demo." with "Scan that QR to get recorded demo", QR on a white rounded card.
+-->
+<div class="dr-stage"><div class="dr-slide is-green">
+
+<div style="position:absolute;left:160px;top:400px">
+<div style="font-size:180px;line-height:1;font-weight:700;letter-spacing:-.01em">Thankyou<span style="color:var(--lime)">.</span></div>
+<div style="font-size:48px;line-height:56px;margin-top:28px">Do you have any questions?</div></div>
+<div style="position:absolute;right:210px;top:294px;width:500px;height:500px;border-radius:40px;background:repeating-conic-gradient(rgba(255,255,255,.55) 0 25%, transparent 0 50%) 0 0/40px 40px;opacity:.7"></div>
+<div style="position:absolute;right:210px;top:820px;width:500px;text-align:center;font-size:22px">Scan to connect with me &#128526;</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

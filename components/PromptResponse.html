@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PromptResponse — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+PromptResponse (Content) — Prompt and model output
+A prompt and the model's answer side by side, for prompt-engineering and GenAI API talks.
+
+**Consumer provides:** the prompt text with the variable parts marked, the response (JSON or text), the latency, and which output fields were correct.
+
+- Both panels on `blue-tint`, `radius-card`, equal height.
+- Prompt at 30/52; variables and the user's query as `dr-ichip` (lime with `on-lime`); the target format as a green `dr-ichip`; field names in `ink-muted`.
+- Response in a `dr-code is-s` block inside the right panel; a green `dr-badge` "Generated in X s" straddles its top edge.
+- Field checks: small `dr-check is-s` discs aligned to the lines they validate; a partial or wrong field gets a `lime` disc instead.
+- Number iterations in the headline ("#1 Prompt", "#2 Prompt") so the audience can follow the refinement.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<h2 class="dr-headline" style="top:96px"><span class="hl-blue" style="font-weight:400">#2</span> Prompt → Response</h2>
+<div style="position:absolute;left:128px;top:250px;width:780px;height:720px;border-radius:32px;background:var(--blue-tint);padding:56px;font-size:30px;line-height:52px">
+You are a <span class="dr-ichip">search query parser</span> for my experience booking app. Turn what the user says into a <span class="dr-ichip is-green">JSON object</span>.<br><br>
+<span style="color:var(--ink-muted)">Sort:</span> popularity, price<br><span style="color:var(--ink-muted)">Filters:</span> timeOfDay, date, languages<br><br>
+User query: <span class="dr-ichip">I want a cheap morning boat tour in Paris tomorrow</span></div>
+<div style="position:absolute;left:968px;top:250px;width:824px;height:720px;border-radius:32px;background:var(--blue-tint);padding:48px">
+<span class="dr-badge is-green" style="position:absolute;top:-20px;right:48px">Generated in 1.4 s</span>
+<div class="dr-code is-s" style="height:100%;font-size:24px;line-height:44px"><span class="ln"><span class="p">{</span></span><span class="ln">  <span class="t">"experience"</span><span class="p">:</span> <span class="k">"boat tour"</span><span class="p">,</span></span><span class="ln">  <span class="t">"sort"</span><span class="p">:</span> <span class="k">"price"</span><span class="p">,</span></span><span class="ln">  <span class="t">"filters"</span><span class="p">: {</span></span><span class="ln">    <span class="t">"timeOfDay"</span><span class="p">:</span> <span class="k">"morning"</span><span class="p">,</span></span><span class="ln">    <span class="t">"date"</span><span class="p">:</span> <span class="k">"tomorrow"</span></span><span class="ln">  <span class="p">}</span></span><span class="ln"><span class="p">}</span></span></div>
+<div style="position:absolute;right:88px;top:168px;display:flex;flex-direction:column;gap:20px"><span class="dr-check is-s"></span><span class="dr-check is-s"></span><span class="dr-check is-s"></span><span class="dr-check is-s"></span></div>
+</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

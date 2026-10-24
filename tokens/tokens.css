@@ -1,0 +1,66 @@
+/* Android Talk Design System — generated from tokens/tokens.json */
+:root {
+  --surface: #ffffff;
+  --ink: #000000;
+  --ink-soft: #434343;
+  --ink-muted: #595959;
+  --green: #34a853;
+  --on-green: #ffffff;
+  --green-tint: #e9f4ec;
+  --green-wash: #f7fbf8;
+  --lime: #e5fb79;
+  --lime-deep: #cce84a;
+  --on-lime: #3b401f;
+  --blue: #4285f4;
+  --blue-tint: #e9f0fe;
+  --blue-panel: #b9d0ef;
+  --blue-row: #e5ebf7;
+  --gray-row: #f7f7f7;
+  --hairline: #dfdfdf;
+  --card-border: #d6d6d6;
+  --accent-orange: #f86734;
+  --accent-deep: #073042;
+  --code-bg: #1d262f;
+  --code-text: #ebf4ff;
+  --code-keyword: #47ebb4;
+  --code-type: #88b4e7;
+  --code-punct: #f3cd12;
+  --code-comment: #4a5f78;
+  --space-xs: 16px;
+  --space-s: 24px;
+  --space-m: 40px;
+  --space-l: 72px;
+  --space-xl: 128px;
+  --grid-cell: 528px;
+  --radius-node: 8px;
+  --radius-tile: 12px;
+  --radius-code: 24px;
+  --radius-card: 32px;
+  --radius-pill: 999px;
+  --font-sans: "Google Sans", "Google Sans Flex", "Product Sans", system-ui, sans-serif;
+  --font-mono: "Source Code Pro", "Google Sans Code", ui-monospace, monospace;
+}
+
+/* Display */
+.t-demo-numeral { font-family: var(--font-sans); font-size: 560px; line-height: 0.8; font-weight: 700; letter-spacing: -0.02em; }}
+.t-closing { font-family: var(--font-sans); font-size: 180px; line-height: 1; font-weight: 700; letter-spacing: -0.01em; }}
+.t-title { font-family: var(--font-sans); font-size: 96px; line-height: 116px; font-weight: 700; }}
+.t-statement { font-family: var(--font-sans); font-size: 88px; line-height: 114px; font-weight: 400; }}
+.t-headline { font-family: var(--font-sans); font-size: 72px; line-height: 88px; font-weight: 400; }}
+.t-green-statement { font-family: var(--font-sans); font-size: 68px; line-height: 84px; font-weight: 400; }}
+
+/* Text */
+.t-step-label { font-family: var(--font-sans); font-size: 48px; line-height: 56px; font-weight: 400; }}
+.t-subtitle { font-family: var(--font-sans); font-size: 48px; line-height: 56px; font-weight: 400; }}
+.t-card-title { font-family: var(--font-sans); font-size: 40px; line-height: 48px; font-weight: 400; }}
+.t-body { font-family: var(--font-sans); font-size: 36px; line-height: 56px; font-weight: 400; }}
+.t-pill-caption { font-family: var(--font-sans); font-size: 36px; line-height: 44px; font-weight: 700; }}
+.t-speaker { font-family: var(--font-sans); font-size: 32px; line-height: 40px; font-weight: 700; }}
+.t-card-body { font-family: var(--font-sans); font-size: 28px; line-height: 36px; font-weight: 400; }}
+.t-tag { font-family: var(--font-sans); font-size: 24px; line-height: 32px; font-weight: 600; }}
+.t-speaker-role { font-family: var(--font-sans); font-size: 18px; line-height: 24px; font-weight: 500; }}
+.t-chip { font-family: var(--font-sans); font-size: 16px; line-height: 20px; font-weight: 500; }}
+
+/* Code */
+.t-code-l { font-family: var(--font-mono); font-size: 32px; line-height: 60px; font-weight: 400; }}
+.t-code-s { font-family: var(--font-mono); font-size: 20px; line-height: 32px; font-weight: 400; }}

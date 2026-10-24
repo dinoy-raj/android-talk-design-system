@@ -1,0 +1,41 @@
+# Android Talk Design System
+
+> A 1920x1080 slide design system for tech talks: white canvases, Google green and lime accents, blue/green highlight words, dark code panels, 27 slide components. Read DESIGN.md first; build slides in HTML with tokens/tokens.css and css/slides.css.
+
+## Spec
+- [DESIGN.md](DESIGN.md): rules, tokens, typography, layout, every component, checklist
+
+## Implementation
+- [tokens/tokens.css](tokens/tokens.css): CSS custom properties and type classes
+- [tokens/tokens.json](tokens/tokens.json): the same tokens as data
+- [css/slides.css](css/slides.css): slide primitives
+- [examples/deck.html](examples/deck.html): complete example deck with navigation
+
+## Components
+- [AgendaSlide](components/AgendaSlide.html)
+- [BulletList](components/BulletList.html)
+- [CalloutNote](components/CalloutNote.html)
+- [ChipSet](components/ChipSet.html)
+- [ClosingSlide](components/ClosingSlide.html)
+- [CodeBlock](components/CodeBlock.html)
+- [CodePair](components/CodePair.html)
+- [DataTable](components/DataTable.html)
+- [DemoSlide](components/DemoSlide.html)
+- [FeatureCards](components/FeatureCards.html)
+- [FlowDiagram](components/FlowDiagram.html)
+- [GreenStatement](components/GreenStatement.html)
+- [Headline](components/Headline.html)
+- [KeyTakeaways](components/KeyTakeaways.html)
+- [NumberedSteps](components/NumberedSteps.html)
+- [PromptResponse](components/PromptResponse.html)
+- [ResourcesSlide](components/ResourcesSlide.html)
+- [ScreenshotRow](components/ScreenshotRow.html)
+- [SectionDivider](components/SectionDivider.html)
+- [SpeakerIntro](components/SpeakerIntro.html)
+- [StatHighlight](components/StatHighlight.html)
+- [StatementSlide](components/StatementSlide.html)
+- [Timeline](components/Timeline.html)
+- [TintTiles](components/TintTiles.html)
+- [TitleSlide](components/TitleSlide.html)
+- [TopicTag](components/TopicTag.html)
+- [VersusSplit](components/VersusSplit.html)

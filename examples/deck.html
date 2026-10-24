@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Example deck — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>
+html,body{margin:0;height:100%;background:#111;overflow:hidden}
+.deck-slide{position:absolute;inset:0;display:none} .deck-slide.on{display:block}
+.dr-stage{position:absolute;transform-origin:0 0}
+.hint{position:fixed;right:12px;bottom:10px;color:#888;font:12px system-ui}
+</style>
+</head>
+<body>
+<section class="deck-slide" data-name="TitleSlide"><div class="dr-stage"><div class="dr-slide">
+
+<div style="position:absolute;top:164px;left:128px;display:inline-flex;align-items:center;gap:24px;height:84px;padding:0 36px;border-radius:999px;background:var(--blue);color:#fff;font-size:28px;font-weight:600">Event Name<span style="width:4px;height:48px;border-radius:2px;background:var(--lime)"></span>Second Event</div>
+<h1 class="dr-title" style="position:absolute;top:380px;left:128px;margin:0;font-size:96px;line-height:116px;font-weight:700;max-width:1180px">Build Your Pocket Brain:<br><span class="hl-blue">Tiny On-Device LLMs</span> via<br><span class="hl-green">MediaPipe</span> on Android</h1>
+<div style="position:absolute;top:820px;left:0;height:78px;padding:0 64px 0 152px;border-radius:0 999px 999px 0;background:var(--lime-deep);display:flex;flex-direction:column;justify-content:center">
+  <div style="font-size:32px;line-height:40px;font-weight:700">Your Name</div>
+  <div style="font-size:18px;line-height:24px;font-weight:500;color:var(--green)">Your Role at Company</div></div>
+<div style="position:absolute;right:96px;top:330px;width:440px;height:440px;border-radius:32px;background:var(--green-wash);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-size:28px">hero render</div>
+
+</div></div></section><section class="deck-slide" data-name="AgendaSlide"><div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Agenda</span>
+<div style="position:absolute;left:180px;top:200px;width:1100px">
+<div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;">01</div>
+<div style="font-size:48px;line-height:56px;">Why On-Device?</div></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;background:var(--green-tint);">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;">02</div>
+<div style="font-size:48px;line-height:56px;">Shrinking the Model</div><span class="dr-badge is-lime" style="margin-left:auto">Now</span></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;background:var(--green-wash);color:var(--green);border:2px solid var(--green-tint);">03</div>
+<div style="font-size:48px;line-height:56px;color:var(--ink-muted);">Running on Android</div></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;background:var(--green-wash);color:var(--green);border:2px solid var(--green-tint);">04</div>
+<div style="font-size:48px;line-height:56px;color:var(--ink-muted);">Fine Tuning with LoRA</div></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;background:var(--green-wash);color:var(--green);border:2px solid var(--green-tint);">05</div>
+<div style="font-size:48px;line-height:56px;color:var(--ink-muted);">Production Considerations</div></div>
+</div>
+<div style="position:absolute;right:160px;top:300px;width:420px;height:480px;border-radius:12px;background:var(--green);display:flex;flex-direction:column;justify-content:flex-end;padding:48px">
+<div style="font-size:120px;line-height:1;font-weight:700;color:var(--on-green)">3</div><div style="font-size:36px;color:var(--on-green);margin-top:12px">live demos</div></div>
+
+</div></div></section><section class="deck-slide" data-name="StatementSlide"><div class="dr-stage"><div class="dr-slide">
+
+<div class="dr-grid"></div>
+<div style="position:absolute;left:258px;top:296px;width:8px;height:488px;border-radius:4px;background:var(--lime)"></div>
+<p style="position:absolute;left:346px;top:418px;margin:0;font-size:88px;line-height:114px;max-width:1560px;white-space:nowrap">Is MediaPipe <span class="hl-blue">LLM Inference</span> truly<br>Write <span class="hl-green">Once</span>, Run Anywhere?</p>
+
+</div></div></section><section class="deck-slide" data-name="BulletList"><div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Shrinking the Model: Quantization</span>
+<ul class="dr-bullets" style="position:absolute;top:260px;left:110px;width:840px">
+<li>Convert model <span class="hl-blue">weights &amp; activations</span> from high-precision formats (like 32-bit floating point) <span class="hl-green" style="font-weight:400">to low-precision types</span> (like 8-bit integers).</li>
+<li style="margin-top:80px">Reducing bit precision lowers <span class="hl-blue">memory</span> and <span class="hl-blue">energy costs</span> while <span class="hl-blue">speeding up arithmetic</span>, enabling efficient model execution on <span class="hl-green" style="font-weight:400">edge devices.</span></li>
+</ul>
+<div style="position:absolute;top:300px;right:120px;width:780px;height:460px;border-radius:24px;background:var(--gray-row);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-size:28px">diagram / code / screenshot</div>
+
+</div></div></section><section class="deck-slide" data-name="StatHighlight"><div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">FP32 → INT8 Quantization</span>
+<div style="position:absolute;left:128px;right:128px;top:300px;display:grid;grid-template-columns:repeat(3,1fr)">
+<div style="padding:0 64px;"><div style="font-size:180px;line-height:1;font-weight:700;color:var(--green);letter-spacing:-.02em">4×</div><div style="font-size:40px;line-height:52px;margin-top:36px">smaller weights</div><div style="font-size:26px;color:var(--ink-muted);margin-top:16px">32-bit floats → 8-bit integers</div></div><div style="padding:0 64px;border-left:2px solid var(--hairline);"><div style="font-size:180px;line-height:1;font-weight:700;color:var(--blue);letter-spacing:-.02em">75%</div><div style="font-size:40px;line-height:52px;margin-top:36px">less memory</div><div style="font-size:26px;color:var(--ink-muted);margin-top:16px">per parameter</div></div><div style="padding:0 64px;border-left:2px solid var(--hairline);"><div style="font-size:180px;line-height:1;font-weight:700;color:var(--green);letter-spacing:-.02em">0</div><div style="font-size:40px;line-height:52px;margin-top:36px">network calls</div><div style="font-size:26px;color:var(--ink-muted);margin-top:16px">inference stays on device</div></div>
+</div>
+
+</div></div></section><section class="deck-slide" data-name="CodeBlock"><div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag is-green">Wrapper Classes</span>
+<ul class="dr-bullets" style="position:absolute;top:210px;left:110px"><li>Class from <span class="hl-blue">external Library</span> which is <span class="hl-green">not in our control</span></li></ul>
+<div class="dr-code" style="position:absolute;top:333px;left:242px;width:1436px;height:620px"><span class="ln"><span class="k">import</span> <span class="t">androidx</span><span class="p">.</span><span class="t">compose</span><span class="p">.</span><span class="t">runtime</span><span class="p">.</span><span class="t">Immutable</span></span><span class="ln"> </span><span class="ln"><span class="t">@Immutable</span></span><span class="ln"><span class="k">data class</span> UserListWrapper<span class="p">(</span></span><span class="ln">    <span class="k">val</span> <span class="t">user</span><span class="p">:</span> <span class="t">User</span></span><span class="ln"><span class="p">)</span></span><span class="ln"> </span><span class="ln"><span class="c">// class from external library</span></span><span class="ln"><span class="k">data class</span> User<span class="p">(</span><span class="k">val</span> <span class="t">id</span><span class="p">:</span> <span class="t">Int</span><span class="p">,</span> <span class="k">val</span> <span class="t">name</span><span class="p">:</span> <span class="t">String</span><span class="p">)</span></span></div>
+
+</div></div></section><section class="deck-slide" data-name="VersusSplit"><div class="dr-stage"><div class="dr-slide">
+
+<div style="position:absolute;left:0;top:0;width:960px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center">
+<div style="font-size:120px;line-height:1;font-weight:700;color:var(--green)">Stable</div>
+<div style="font-size:28px;color:var(--ink-muted);margin-top:28px">Primitives · String · data class with val</div>
+<div style="display:flex;gap:16px;margin-top:48px"><span class="dr-badge">Skippable</span><span class="dr-badge">Restartable</span></div></div>
+<div style="position:absolute;left:960px;top:0;width:960px;height:1080px;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center">
+<div style="font-size:120px;line-height:1;font-weight:700;color:var(--on-green)">UnStable</div>
+<div style="font-size:28px;color:var(--on-green);margin-top:28px">Interfaces · List · var properties</div>
+<div style="display:flex;gap:16px;margin-top:48px"><span class="dr-badge is-lime">Recomposes</span></div></div>
+<div style="position:absolute;left:880px;top:460px;width:160px;height:160px;border-radius:50%;background:var(--lime);color:var(--on-lime);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:700">vs</div>
+
+</div></div></section><section class="deck-slide" data-name="DemoSlide"><div class="dr-stage"><div class="dr-slide is-green">
+
+<span class="dr-chip">Gemma 3n 2B</span>
+<div style="position:absolute;left:0;right:0;top:640px;display:flex;justify-content:center"><span class="dr-pill">&#127939; Running <span class="hl-blue" style="font-weight:700">Gemma</span> Models Directly On Android App</span></div>
+<div style="position:absolute;left:-30px;top:700px;font-size:560px;line-height:.8;font-weight:700;letter-spacing:-.02em;color:var(--on-green);white-space:nowrap">Demo 1</div>
+
+</div></div></section><section class="deck-slide" data-name="KeyTakeaways"><div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Key Takeaways</span>
+<div style="position:absolute;left:200px;top:250px;width:1500px;display:flex;flex-direction:column;gap:64px">
+<div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px">Keep inference <span class="hl-green">on device</span>: faster, private, offline</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px"><span class="hl-blue">Quantize</span> before you ship: smaller, faster, cheaper</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px">Use <span class="hl-blue">LoRA</span> to specialise a <span class="hl-green">tiny model</span> for your domain</div></div>
+</div>
+
+</div></div></section><section class="deck-slide" data-name="ClosingSlide"><div class="dr-stage"><div class="dr-slide is-green">
+
+<div style="position:absolute;left:160px;top:400px">
+<div style="font-size:180px;line-height:1;font-weight:700;letter-spacing:-.01em">Thankyou<span style="color:var(--lime)">.</span></div>
+<div style="font-size:48px;line-height:56px;margin-top:28px">Do you have any questions?</div></div>
+<div style="position:absolute;right:210px;top:294px;width:500px;height:500px;border-radius:40px;background:repeating-conic-gradient(rgba(255,255,255,.55) 0 25%, transparent 0 50%) 0 0/40px 40px;opacity:.7"></div>
+<div style="position:absolute;right:210px;top:820px;width:500px;text-align:center;font-size:22px">Scan to connect with me &#128526;</div>
+
+</div></div></section>
+<div class="hint">← → to navigate · F for fullscreen</div>
+<script>
+(function(){var s=[].slice.call(document.querySelectorAll('.deck-slide')),i=Math.max(0,Math.min(s.length-1,(parseInt(location.hash.slice(1))||1)-1));
+function fit(){var k=Math.min(innerWidth/1920,innerHeight/1080),x=(innerWidth-1920*k)/2,y=(innerHeight-1080*k)/2;document.querySelectorAll('.dr-stage').forEach(function(e){e.style.transform='translate('+x+'px,'+y+'px) scale('+k+')';});}
+function show(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,j){e.classList.toggle('on',j===i);});history.replaceState(null,'','#'+(i+1));}
+addEventListener('keydown',function(e){if(['ArrowRight','PageDown',' '].indexOf(e.key)>-1)show(i+1);if(['ArrowLeft','PageUp'].indexOf(e.key)>-1)show(i-1);if(e.key==='f')document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();});
+addEventListener('click',function(e){show(e.clientX>innerWidth/2?i+1:i-1);});
+addEventListener('resize',fit);fit();show(i);})();
+</script>
+</body></html>

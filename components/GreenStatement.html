@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GreenStatement — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+GreenStatement (Slides) — Section interstitial
+A full-green interstitial: one white line plus a lime pill holding the answer or twist.
+
+**Consumer provides:** a setup line and a short payoff (2–4 words).
+
+- `green` ground; setup in `green-statement` (68/84) `on-green`, centred.
+- Payoff in a `lime` pill (`pill-caption` at 48px/500, 96px tall) with `ink` text, often closed with ☺.
+- Variant on white: setup in `ink` with a highlight + payoff in a lime pill ("Does shipping a **C++ engine** / [come with app size overhead?]"; "Does **AI** knows how to / [make a Launcher?]").
+- Single-pill variant: just a lime pill centred on green ("@Composable", "Code Walk" — green text on lime).
+-->
+<div class="dr-stage"><div class="dr-slide is-green">
+
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px">
+<div style="font-size:68px;line-height:84px">Platform Specific Runtime</div>
+<span class="dr-pill is-m">Reusable Model &#9786;</span></div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

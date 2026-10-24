@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TitleSlide — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+TitleSlide (Slides) — Opening slide
+The opening slide: event pill, a three-line title with highlight words, the speaker pill and one hero render.
+
+**Consumer provides:** the event name(s) (one or two, split by a short `lime` bar), the title split into at most three lines, which words to highlight, and a hero image (a 3D render, usually the Android robot or a topic object) for the right ~40%.
+
+- Event pill: `blue` fill, white 28px semibold text, `radius-pill`, top-left at `space-xl`. Use the event's own logos inside it when available.
+- Title: `title` style (96/116, 700) in `ink`. Highlight the *subject* in `blue` and the *platform or payoff* in `green` (e.g. "Tiny On-Device LLMs" blue, "MediaPipe" green). Never more than two highlight runs.
+- Speaker pill: `lime-deep`, flush to the left edge with its right end rounded; name in `speaker`, role in `speaker-role` `green`.
+- Variant (Beyond the Grid, Compiler Magic): small kicker line in `blue`/`ink-muted` above the title, title at 72px, speaker as plain text — "Dinoy Raj" in `blue` 500 with role under it — at the bottom-left; event as a small dark pill or the event logo.
+- Don't add a background grid or gradient here; white only.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<div style="position:absolute;top:164px;left:128px;display:inline-flex;align-items:center;gap:24px;height:84px;padding:0 36px;border-radius:999px;background:var(--blue);color:#fff;font-size:28px;font-weight:600">Event Name<span style="width:4px;height:48px;border-radius:2px;background:var(--lime)"></span>Second Event</div>
+<h1 class="dr-title" style="position:absolute;top:380px;left:128px;margin:0;font-size:96px;line-height:116px;font-weight:700;max-width:1180px">Build Your Pocket Brain:<br><span class="hl-blue">Tiny On-Device LLMs</span> via<br><span class="hl-green">MediaPipe</span> on Android</h1>
+<div style="position:absolute;top:820px;left:0;height:78px;padding:0 64px 0 152px;border-radius:0 999px 999px 0;background:var(--lime-deep);display:flex;flex-direction:column;justify-content:center">
+  <div style="font-size:32px;line-height:40px;font-weight:700">Your Name</div>
+  <div style="font-size:18px;line-height:24px;font-weight:500;color:var(--green)">Your Role at Company</div></div>
+<div style="position:absolute;right:96px;top:330px;width:440px;height:440px;border-radius:32px;background:var(--green-wash);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-size:28px">hero render</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

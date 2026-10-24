@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StatementSlide — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+StatementSlide (Slides) — Question over the grid
+The thinking-pause slide: a question or provocation in large type over the hairline grid, with a `lime` accent bar.
+
+**Consumer provides:** one sentence, usually a question, with one blue and one green highlight.
+
+- White ground + `hairline` grid (lines every `grid-cell`, broken by small gaps at each crossing).
+- 8px `lime` bar on a grid column, spanning one grid row.
+- Text in `statement` (88/114, 400), highlights at 500.
+- Used between sections: "Is Building **Custom Launcher** is **Tough** Thing to do?", "Constructing **UI** by describing **what**, not ~~how~~".
+- Variant: a word inside a lime pill breaking the line ("Lets build a [launcher]"), with a tiny `blue` stat line under it.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<div class="dr-grid"></div>
+<div style="position:absolute;left:258px;top:296px;width:8px;height:488px;border-radius:4px;background:var(--lime)"></div>
+<p style="position:absolute;left:346px;top:418px;margin:0;font-size:88px;line-height:114px;max-width:1560px;white-space:nowrap">Is MediaPipe <span class="hl-blue">LLM Inference</span> truly<br>Write <span class="hl-green">Once</span>, Run Anywhere?</p>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

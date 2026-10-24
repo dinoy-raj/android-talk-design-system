@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TintTiles — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+TintTiles (Content) — Mint, blue and solid tiles
+Soft tinted tiles for grouping concepts, logos or options; the centre tile can carry the logo or emphasis.
+
+**Consumer provides:** 2–6 short labels or logos, optional one-sentence descriptions.
+
+- `dr-tile` on `green-tint`; `is-blue` on `blue-tint`; `is-outline` = white with a `green-tint` 2px border; `is-solid` = `green` with white content for the one emphasised item.
+- Tile label in `green` (or `blue` on blue tiles) at 28–36px/500; description 22px `ink`.
+- Corners `radius-tile`. Whole-slide variant: `is-mint` slide background with white panels on it (Clean Architecture slides).
+- Logo grid: logos in full colour on `green-tint` tiles, 3×2.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">MediaPipe</span>
+<div style="position:absolute;top:250px;left:240px;right:240px;display:grid;grid-template-columns:repeat(3,1fr);gap:56px;height:560px">
+<div class="dr-tile is-outline"><div style="font-size:36px;font-weight:500;color:var(--green)">MediaPipe</div><p style="font-size:22px;line-height:30px;margin:24px 0 0">Open source framework to build cross-platform ML pipelines.</p></div>
+<div class="dr-tile"><div style="width:180px;height:180px;border-radius:24px;background:var(--green)"></div></div>
+<div class="dr-tile is-outline"><div style="font-size:36px;font-weight:500;color:var(--green)">LLM Inference</div><p style="font-size:22px;line-height:30px;margin:24px 0 0">Specialised task built within the framework for LLMs on device.</p></div>
+</div>
+<div style="position:absolute;bottom:80px;left:240px;right:240px;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+<div class="dr-tile" style="height:110px;font-size:28px;color:var(--green)">Summarisation</div><div class="dr-tile is-blue" style="height:110px;font-size:28px;color:var(--blue)">Proof Reading</div></div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

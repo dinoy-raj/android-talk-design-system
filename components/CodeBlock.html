@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CodeBlock — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+CodeBlock (Content) — Kotlin on dark
+Code on a dark rounded panel with line numbers and a fixed five-colour syntax palette.
+
+**Consumer provides:** the snippet (Kotlin, Gradle, XML, Python), already trimmed to what matters.
+
+- `dr-code`: `code-bg`, `radius-code`, mono family. `code-l` (32/60) for ≤ 10 lines as the slide's hero; `is-s` / `code-s` (20/32) for longer code beside bullets.
+- Colours: keywords `code-keyword`, types/annotations/params `code-type`, punctuation `code-punct`, identifiers `code-text`, comments and line numbers `code-comment` italic.
+- Spotlight a line with a lime pill around it, or a small green label pill above the block ("Data set", "Open model & LoRA").
+- Light variant for secondary snippets: `gray-row` card, no numbers, pastel syntax.
+- Prefer one block per slide; two side by side with green caption pills under each when comparing (File structure / Python code).
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag is-green">Wrapper Classes</span>
+<ul class="dr-bullets" style="position:absolute;top:210px;left:110px"><li>Class from <span class="hl-blue">external Library</span> which is <span class="hl-green">not in our control</span></li></ul>
+<div class="dr-code" style="position:absolute;top:333px;left:242px;width:1436px;height:620px"><span class="ln"><span class="k">import</span> <span class="t">androidx</span><span class="p">.</span><span class="t">compose</span><span class="p">.</span><span class="t">runtime</span><span class="p">.</span><span class="t">Immutable</span></span><span class="ln"> </span><span class="ln"><span class="t">@Immutable</span></span><span class="ln"><span class="k">data class</span> UserListWrapper<span class="p">(</span></span><span class="ln">    <span class="k">val</span> <span class="t">user</span><span class="p">:</span> <span class="t">User</span></span><span class="ln"><span class="p">)</span></span><span class="ln"> </span><span class="ln"><span class="c">// class from external library</span></span><span class="ln"><span class="k">data class</span> User<span class="p">(</span><span class="k">val</span> <span class="t">id</span><span class="p">:</span> <span class="t">Int</span><span class="p">,</span> <span class="k">val</span> <span class="t">name</span><span class="p">:</span> <span class="t">String</span><span class="p">)</span></span></div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

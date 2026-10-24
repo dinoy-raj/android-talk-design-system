@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FlowDiagram — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+FlowDiagram (Content) — Nodes and connectors
+Hand-built architecture and flow diagrams from pills and soft boxes joined by thin dashed lines.
+
+**Consumer provides:** the nodes, their grouping into columns or rows, and the connections.
+
+- Column headers / categories: `dr-node` lime pill with `green` text.
+- Entry points / requests: `is-outline` pill (white, 2px `ink-soft` border).
+- Steps: `is-box` — `green-wash` fill, `green-tint` border, `green` text, `radius-node`.
+- The one highlighted system node: `is-blue` (`blue-tint` fill, `blue` text).
+- Connectors: 2px dashed `card-border`, or solid with small arrowheads in the node's colour.
+- Phase flows (Composition → Layout → Drawing) may use `blue`, `accent-orange`, `accent-deep` as solid node fills with white bold text, with outline boxes in the same colours for the "state reads" column.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Under the hood</span>
+<div style="position:absolute;top:250px;left:200px;right:200px;display:grid;grid-template-columns:repeat(3,1fr);gap:120px;text-align:center">
+<div style="display:flex;flex-direction:column;gap:40px;align-items:center"><span class="dr-node is-outline" style="border-radius:999px">Dependency</span><span style="width:2px;height:80px;background:repeating-linear-gradient(var(--card-border) 0 8px,transparent 8px 16px)"></span><span class="dr-node is-blue" style="padding:40px 48px">MediaPipe C++ Engine</span></div>
+<div style="display:flex;flex-direction:column;gap:40px;align-items:center"><span class="dr-node">Initialization</span><span class="dr-node is-outline" style="border-radius:999px">Kotlin Request</span><span class="dr-node is-box">Memory Mapping</span><span class="dr-node is-box">Graph Construction</span></div>
+<div style="display:flex;flex-direction:column;gap:40px;align-items:center"><span class="dr-node">Execution</span><span class="dr-node is-outline" style="border-radius:999px">Inference Request</span><span class="dr-node is-box">Pre-processing</span><span class="dr-node is-box">JNI callback</span></div>
+</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

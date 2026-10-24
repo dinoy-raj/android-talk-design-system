@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CodePair — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+CodePair (Content) — Before / after code
+Two code blocks side by side with caption pills underneath: before/after, Kotlin/Python, file tree/code.
+
+**Consumer provides:** two snippets of similar length (≤ 12 lines each) and two short captions.
+
+- Two equal `dr-code is-s` blocks (24/44 here), 56px gap, same height.
+- Captions: `dr-cap` pills centred under each block. For before/after the "before" pill is an outline (white, 2px `card-border`, `ink-soft`) and the "after" pill is solid `green`, optionally closed with ☺.
+- Keep the changed lines in the same position in both blocks so the eye can diff them.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Lambda Stability</span>
+<div style="position:absolute;left:128px;right:128px;top:200px;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:32px"><div class="dr-code is-s" style="width:100%;height:600px;font-size:24px;line-height:44px"><span class="ln"><span class="t">@Composable</span></span><span class="ln"><span class="k">fun</span> UserList<span class="p">(</span><span class="t">vm</span><span class="p">:</span> <span class="t">UserViewModel</span><span class="p">) {</span></span><span class="ln">  <span class="c">// new lambda every recomposition</span></span><span class="ln">  Users<span class="p">(</span></span><span class="ln">    <span class="t">onClick</span> <span class="p">=</span> <span class="p">{</span> vm<span class="p">.</span>select<span class="p">(</span>it<span class="p">) }</span></span><span class="ln">  <span class="p">)</span></span><span class="ln"><span class="p">}</span></span></div><span class="dr-cap" style="background:var(--surface);color:var(--ink-soft);border:2px solid var(--card-border)">Before</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:32px"><div class="dr-code is-s" style="width:100%;height:600px;font-size:24px;line-height:44px"><span class="ln"><span class="t">@Composable</span></span><span class="ln"><span class="k">fun</span> UserList<span class="p">(</span><span class="t">vm</span><span class="p">:</span> <span class="t">UserViewModel</span><span class="p">) {</span></span><span class="ln">  <span class="k">val</span> onClick <span class="p">=</span> remember<span class="p">(</span>vm<span class="p">) {</span></span><span class="ln">    <span class="p">{</span> id<span class="p">:</span> <span class="t">String</span> <span class="p">-&gt;</span> vm<span class="p">.</span>select<span class="p">(</span>id<span class="p">) }</span></span><span class="ln">  <span class="p">}</span></span><span class="ln">  Users<span class="p">(</span><span class="t">onClick</span> <span class="p">=</span> onClick<span class="p">)</span></span><span class="ln"><span class="p">}</span></span></div><span class="dr-cap">After ☺</span></div>
+</div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

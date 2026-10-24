@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TopicTag — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+TopicTag (Labels) — Slide label
+The small pill pinned top-left that names the slide's topic: the default slide header in three of the four decks.
+
+**Consumer provides:** a short Title Case label (1–5 words). Optional second segment for a sub-topic.
+
+- Default: `lime` fill, `on-lime` text, `tag` style (24px/600), 64px tall, 32px side padding, `radius-pill`, inset `space-l` from top and left.
+- Green variant: `green` fill with `lime` text. Pick lime *or* green per deck and keep it (Compiler Magic used green throughout).
+- Split variant: lime segment + green segment inside a 3px `green` outline, for "Category | Sub-topic" (e.g. Querying | Launcher Service).
+- A single emoji or ☺ may close the label when the slide is a punchline ("Recomposition 😵", "Reviews ☺").
+- Don't combine a topic tag and a `Headline` on the same slide.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Shrinking the Model: Quantization</span>
+<span class="dr-tag is-green" style="top:200px">Wrapper Classes</span>
+<span class="dr-tag-split" style="top:328px"><span>Querying</span><span>Launcher Service</span></span>
+<span class="dr-tag" style="top:456px">Recomposition &#9786;</span>
+<ul class="dr-bullets" style="position:absolute;top:640px;left:128px;width:1500px"><li>The tag names the topic; the slide carries the content.</li></ul>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

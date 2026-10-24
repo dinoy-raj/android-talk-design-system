@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgendaSlide — Android Talk Design System</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/slides.css">
+<style>html,body{margin:0;height:100%;background:#111;overflow:hidden} .dr-stage{transform-origin:0 0}</style>
+</head>
+<body>
+<!--
+AgendaSlide (Slides) — Talk outline
+The talk outline: 3–6 numbered rows, the current section highlighted, with an optional green fact tile.
+
+**Consumer provides:** section titles (Title Case, ≤ 4 words), the index of the current section, and optionally one fact for the tile (demo count, duration).
+
+- Rows 136px tall; numbers in 80px discs (`dr-disc` sized down). Done/current items use solid `green` discs; upcoming items use `green-wash` discs with `green` numbers and `ink-muted` labels.
+- Current row: `green-tint` pill background plus a `lime` "Now" badge.
+- Labels in `step-label` (48/56).
+- Fact tile: `green` block, `radius-tile`, a large white number (120px/700) and a 36px label.
+- Re-use the same slide between sections with the next row highlighted, as a progress marker.
+-->
+<div class="dr-stage"><div class="dr-slide">
+
+<span class="dr-tag">Agenda</span>
+<div style="position:absolute;left:180px;top:200px;width:1100px">
+<div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;">01</div>
+<div style="font-size:48px;line-height:56px;">Why On-Device?</div></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;background:var(--green-tint);">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;">02</div>
+<div style="font-size:48px;line-height:56px;">Shrinking the Model</div><span class="dr-badge is-lime" style="margin-left:auto">Now</span></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;background:var(--green-wash);color:var(--green);border:2px solid var(--green-tint);">03</div>
+<div style="font-size:48px;line-height:56px;color:var(--ink-muted);">Running on Android</div></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;background:var(--green-wash);color:var(--green);border:2px solid var(--green-tint);">04</div>
+<div style="font-size:48px;line-height:56px;color:var(--ink-muted);">Fine Tuning with LoRA</div></div><div style="display:flex;align-items:center;gap:40px;height:136px;padding:0 40px;border-radius:999px;">
+<div class="dr-disc" style="width:80px;height:80px;font-size:26px;background:var(--green-wash);color:var(--green);border:2px solid var(--green-tint);">05</div>
+<div style="font-size:48px;line-height:56px;color:var(--ink-muted);">Production Considerations</div></div>
+</div>
+<div style="position:absolute;right:160px;top:300px;width:420px;height:480px;border-radius:12px;background:var(--green);display:flex;flex-direction:column;justify-content:flex-end;padding:48px">
+<div style="font-size:120px;line-height:1;font-weight:700;color:var(--on-green)">3</div><div style="font-size:36px;color:var(--on-green);margin-top:12px">live demos</div></div>
+
+</div></div>
+<script>
+/* scale the 1920x1080 canvas to the window */
+(function(){var s=document.querySelector('.dr-stage');function f(){var k=Math.min(innerWidth/1920,innerHeight/1080);s.style.transform='scale('+k+')';}addEventListener('resize',f);f();})();
+</script>
+</body>
+</html>

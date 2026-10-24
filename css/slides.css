@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=Source+Code+Pro:ital,wght@0,400;0,500;1,400&display=swap");
+
+/* Android Talk — slide primitives. Canvas is 1920x1080. Load tokens/tokens.css first. */
+.dr-stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+.dr-slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; overflow: hidden;
+  background: var(--surface); color: var(--ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+.dr-slide * { box-sizing: border-box; }
+.dr-slide.is-green { background: var(--green); color: var(--on-green); }
+.dr-slide.is-mint { background: var(--green-tint); }
+
+/* background grid: 1px hairlines every 528px, broken at crossings */
+.dr-grid { position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--hairline) 0 2px, transparent 2px),
+    linear-gradient(to bottom, var(--hairline) 0 2px, transparent 2px);
+  background-size: 528px 528px; background-position: 263px 274px; }
+.dr-grid::after { content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, var(--surface) 0 14px, transparent 15px);
+  background-size: 528px 528px; background-position: 1px 11px; }
+
+/* highlights */
+.hl-blue { color: var(--blue); font-weight: 500; }
+.hl-green { color: var(--green); font-weight: 500; }
+.dr-title .hl-blue, .dr-title .hl-green { font-weight: 700; }
+
+/* topic tag */
+.dr-tag { position: absolute; top: var(--space-l); left: var(--space-l); display: inline-flex; align-items: center; height: 64px;
+  padding: 0 32px; border-radius: var(--radius-pill); background: var(--lime); color: var(--on-lime);
+  font-size: 24px; line-height: 32px; font-weight: 600; white-space: nowrap; }
+.dr-tag.is-green { background: var(--green); color: var(--lime); }
+.dr-tag-split { position: absolute; top: var(--space-l); left: var(--space-l); display: inline-flex; height: 64px; border-radius: var(--radius-pill);
+  border: 3px solid var(--green); overflow: hidden; font-size: 24px; font-weight: 600; }
+.dr-tag-split > span { display: flex; align-items: center; padding: 0 32px; }
+.dr-tag-split > span:first-child { background: var(--lime); color: var(--on-lime); }
+.dr-tag-split > span:last-child { background: var(--green); color: var(--on-green); }
+
+/* chip, top-right */
+.dr-chip { position: absolute; top: 36px; right: 72px; height: 32px; padding: 0 20px; display: inline-flex; align-items: center;
+  border-radius: var(--radius-pill); background: var(--green-tint); color: #555956; font-size: 16px; font-weight: 500; }
+.dr-chip.is-green { background: var(--green); color: var(--on-green); }
+
+/* headline (deck style B) */
+.dr-headline { position: absolute; top: 120px; left: var(--space-xl); right: var(--space-xl); margin: 0;
+  font-size: 72px; line-height: 88px; font-weight: 400; }
+
+/* bullets */
+.dr-bullets { list-style: none; margin: 0; padding: 0; font-size: 36px; line-height: 56px; }
+.dr-bullets li { position: relative; padding-left: 40px; margin-bottom: var(--space-m); }
+.dr-bullets li::before { content: ""; position: absolute; left: 0; top: 21px; width: 14px; height: 14px; border-radius: 50%; background: var(--green); }
+
+/* pills on green */
+.dr-pill { display: inline-flex; align-items: center; gap: 24px; height: 124px; padding: 0 64px; border-radius: var(--radius-pill);
+  background: var(--lime); color: var(--ink); font-size: 36px; line-height: 44px; font-weight: 700; white-space: nowrap; }
+.dr-pill.is-m { height: 96px; padding: 0 48px; font-size: 48px; font-weight: 500; }
+
+/* cards & tiles */
+.dr-card { border: 2px solid var(--card-border); border-radius: var(--radius-card); background: var(--surface);
+  display: flex; flex-direction: column; align-items: center; text-align: center; padding: var(--space-m); }
+.dr-card h4 { margin: 0; font-size: 40px; line-height: 48px; font-weight: 400; color: var(--ink-muted); }
+.dr-card p { margin: 20px 0 0; font-size: 28px; line-height: 36px; color: var(--ink-muted); }
+.dr-tile { border-radius: var(--radius-tile); background: var(--green-tint); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: var(--space-m); }
+.dr-tile.is-blue { background: var(--blue-tint); }
+.dr-tile.is-solid { background: var(--green); color: var(--on-green); }
+.dr-tile.is-outline { background: var(--surface); border: 2px solid var(--green-tint); }
+
+/* code */
+.dr-code { background: var(--code-bg); border-radius: var(--radius-code); padding: 40px 56px; color: var(--code-text);
+  font-family: var(--font-mono); font-size: 32px; line-height: 60px; white-space: pre; counter-reset: ln; }
+.dr-code.is-s { font-size: 20px; line-height: 32px; padding: 32px 40px; }
+.dr-code .ln { display: block; counter-increment: ln; }
+.dr-code .ln::before { content: counter(ln); display: inline-block; width: 2.6ch; margin-right: 1.6ch; text-align: right; color: var(--code-comment); }
+.dr-code .k { color: var(--code-keyword); } .dr-code .t { color: var(--code-type); }
+.dr-code .p { color: var(--code-punct); } .dr-code .c { color: var(--code-comment); font-style: italic; }
+
+/* numbered */
+.dr-disc { width: 170px; height: 170px; border-radius: 50%; background: var(--green); color: var(--on-green);
+  display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 500; flex: none; }
+.dr-numeral { font-size: 80px; font-weight: 500; line-height: 1;
+  background: linear-gradient(180deg, var(--blue) 45%, var(--blue-tint)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.dr-code-pill { display: inline-flex; align-items: center; height: 104px; padding: 0 24px; border-radius: var(--radius-pill);
+  background: var(--green); color: var(--lime); font-size: 36px; font-weight: 700; }
+
+/* diagram nodes */
+.dr-node { display: inline-flex; align-items: center; justify-content: center; padding: 16px 32px; border-radius: var(--radius-pill);
+  background: var(--lime); color: var(--green); font-size: 22px; font-weight: 600; }
+.dr-node.is-box { border-radius: var(--radius-node); background: var(--green-wash); border: 2px solid var(--green-tint); color: var(--green); }
+.dr-node.is-blue { border-radius: var(--radius-node); background: var(--blue-tint); color: var(--blue); }
+.dr-node.is-outline { background: var(--surface); border: 2px solid var(--ink-soft); color: var(--ink); }
+
+/* table */
+.dr-table { border-collapse: collapse; width: 100%; font-size: 24px; line-height: 32px; border-radius: var(--radius-node); overflow: hidden; }
+.dr-table th { background: var(--blue); color: var(--surface); font-weight: 500; text-align: left; padding: 16px 28px; }
+.dr-table td { padding: 16px 28px; color: var(--ink-soft); }
+.dr-table tr:nth-child(odd) td { background: var(--gray-row); }
+.dr-table tr:nth-child(even) td { background: var(--blue-row); }
+
+/* ---- set 2: reusable additions ---- */
+/* inline lime chip inside running text (prompt variables, key terms) */
+.dr-ichip { display: inline-block; padding: 0 14px; border-radius: var(--radius-pill); background: var(--lime); color: var(--on-lime); font-weight: 600; }
+.dr-ichip.is-green { background: var(--green); color: var(--on-green); }
+/* check disc */
+.dr-check { width: 88px; height: 88px; border-radius: 50%; background: var(--lime); flex: none; position: relative; }
+.dr-check::after { content: ""; position: absolute; left: 31px; top: 20px; width: 20px; height: 38px; border: solid var(--green); border-width: 0 8px 8px 0; transform: rotate(45deg); }
+.dr-check.is-s { width: 36px; height: 36px; background: var(--green); }
+.dr-check.is-s::after { left: 13px; top: 7px; width: 8px; height: 16px; border-color: var(--on-green); border-width: 0 4px 4px 0; }
+/* outline pill (facts, chips on white) */
+.dr-opill { display: inline-flex; align-items: center; height: 72px; padding: 0 36px; border-radius: var(--radius-pill);
+  border: 2px solid var(--card-border); color: var(--ink-soft); font-size: 28px; font-weight: 500; white-space: nowrap; }
+/* inline chip variants (not pinned) */
+.dr-badge { display: inline-flex; align-items: center; height: 40px; padding: 0 20px; border-radius: var(--radius-pill);
+  font-size: 20px; font-weight: 600; background: var(--green-tint); color: var(--green); white-space: nowrap; }
+.dr-badge.is-green { background: var(--green); color: var(--on-green); }
+.dr-badge.is-lime { background: var(--lime); color: var(--on-lime); }
+.dr-badge.is-blue { background: var(--blue-tint); color: var(--blue); }
+.dr-badge.is-muted { background: var(--gray-row); color: var(--ink-muted); }
+.dr-badge.is-dark { background: var(--code-bg); color: var(--code-keyword); }
+/* phone frame */
+.dr-phone { width: 300px; height: 620px; border-radius: 44px; background: var(--surface); border: 10px solid var(--code-bg); position: relative; overflow: hidden; }
+.dr-phone::before { content: ""; position: absolute; top: 14px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: var(--code-bg); }
+/* caption pill under panels */
+.dr-cap { display: inline-flex; align-items: center; height: 52px; padding: 0 32px; border-radius: var(--radius-pill);
+  background: var(--green); color: var(--on-green); font-size: 24px; font-weight: 700; }
