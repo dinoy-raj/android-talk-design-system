@@ -150,7 +150,7 @@ One family (`--font-sans`, Google Sans) plus `--font-mono` for code. Headlines a
 | `dr-code` (`is-s`) with `.ln .k .t .p .c` spans | Code block with line numbers + syntax colours |
 | `dr-disc`, `dr-numeral`, `dr-code-pill` | Numbered steps |
 | `dr-node` (`is-box`, `is-blue`, `is-outline`) | Diagram nodes |
-| `dr-table` | Blue-header striped table |
+| `dr-table` | Blue-header table of separated rounded rows |
 | `dr-chip` (`is-green`) | Small chip pinned top-right |
 | `dr-badge` (`is-green`, `is-lime`, `is-blue`, `is-muted`, `is-dark`) | Inline status/version badges |
 | `dr-ichip` (`is-green`) | Lime chip inside running text |
@@ -382,7 +382,8 @@ Comparison tables with a blue header row and alternating gray/blue rows.
 
 **Consumer provides:** a header row and up to ~8 rows; keep cells short.
 
-- `dr-table`: header `blue` with white 24px/500 text; body rows alternate `gray-row` and `blue-row`, text `ink-soft` 24/32; corners `radius-node`; no vertical rules.
+- `dr-table`: every row is its own rounded bar (`radius-tile`) with an 8px gap between rows; no borders or rules anywhere.
+- Header row `blue` with white 24px/500 text; body rows alternate `gray-row` and `blue-row`, text `ink-soft` 24/32.
 - Small inline ✅ / 🟡 marks are fine in a "Result" column.
 - For results tied to a device, put the device label as a small `blue`/`green` caption to the left of the table.
 
@@ -524,7 +525,7 @@ Two opposing ideas side by side: white half vs green half, with a lime "vs" disc
 
 **Consumer provides:** two short names (1–2 words), a one-line description each, and 1–3 trait badges each.
 
-- Left half `surface` with the name in `green` 120px/700; right half `green` with the name in `on-green`.
+- Left half `surface` with the name in `green` 120px/700; right half a `green` panel inset 24px from the edges with `radius-card` corners, name in `on-green`.
 - Descriptions 28px (`ink-muted` / `on-green`); traits as `dr-badge` (green-tint on white, lime on green).
 - 160px `lime` disc with "vs" in `on-lime`, centred on the seam.
 - Put the "good"/default side on the left (white), the problem/twist on the right (green).
