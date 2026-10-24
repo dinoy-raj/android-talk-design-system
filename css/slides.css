@@ -87,8 +87,9 @@
 .dr-node.is-blue { border-radius: var(--radius-node); background: var(--blue-tint); color: var(--blue); }
 .dr-node.is-outline { background: var(--surface); border: 2px solid var(--ink-soft); color: var(--ink); }
 
-/* table — separated rounded rows, no borders */
-.dr-table { border-collapse: separate; border-spacing: 0 8px; margin: -8px 0; width: 100%; font-size: 24px; line-height: 32px; }
+/* table — Material 3 Expressive style segmented list: separated rows with small inner corners,
+   large corners on the outside of the whole table, no borders */
+.dr-table { border-collapse: separate; border-spacing: 0 4px; margin: -4px 0; width: 100%; font-size: 24px; line-height: 32px; }
 .dr-table th, .dr-table td { border: 0; padding: 18px 28px; }
 .dr-table th { background: var(--blue); color: var(--surface); font-weight: 500; text-align: left; }
 .dr-table td { color: var(--ink-soft); }
@@ -96,6 +97,10 @@
 .dr-table tr:nth-child(even) td { background: var(--blue-row); }
 .dr-table tr > :first-child { border-radius: var(--radius-tile) 0 0 var(--radius-tile); }
 .dr-table tr > :last-child { border-radius: 0 var(--radius-tile) var(--radius-tile) 0; }
+.dr-table tr:first-child > :first-child { border-top-left-radius: var(--radius-card); }
+.dr-table tr:first-child > :last-child { border-top-right-radius: var(--radius-card); }
+.dr-table tr:last-child > :first-child { border-bottom-left-radius: var(--radius-card); }
+.dr-table tr:last-child > :last-child { border-bottom-right-radius: var(--radius-card); }
 
 /* ---- set 2: reusable additions ---- */
 /* inline lime chip inside running text (prompt variables, key terms) */
