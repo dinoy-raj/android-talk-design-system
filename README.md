@@ -13,7 +13,7 @@ Created from the slides of my last 4 conference talks — see them on **[SlideSh
 | Compiler Magic & Stability: Optimising Compose Recomposition | FOSSASIA Summit 2026 |
 | Supercharging Android Apps with On-Device AI: Gemini Nano | droidcon Uganda 2025 |
 
-- 🖼 **Gallery:** open `index.html` (or the GitHub Pages site of your fork)
+- 🌐 **Live site:** [dinoy-raj.github.io/android-talk-design-system](https://dinoy-raj.github.io/android-talk-design-system/): showcase, component gallery, foundations and the example deck
 - ▶️ **Example deck:** `examples/deck.html` — arrow keys to navigate, `F` for fullscreen
 - 📐 **The spec:** [`DESIGN.md`](DESIGN.md) — everything an AI (or a human) needs
 
@@ -114,7 +114,8 @@ tokens/tokens.css    The same tokens as CSS custom properties + .t-* type classe
 css/slides.css       Slide primitives (dr-slide, dr-tag, dr-bullets, dr-code, dr-badge …)
 components/*.html    27 standalone 1920×1080 slide components
 examples/deck.html   A 10-slide example deck with navigation
-index.html           Gallery of every component (works on GitHub Pages)
+index.html           Showcase website (deployed to GitHub Pages)
+.github/workflows/   Builds the site on every PR, deploys it when main changes
 docs/                README banner and component preview images
 ```
 
@@ -130,6 +131,15 @@ docs/                README banner and component preview images
 - Fonts load from Google Fonts: **Google Sans Flex** and **Source Code Pro**, both under the SIL Open Font License. Nothing is bundled.
 - This repo ships **no images**. Bring your own photos, screenshots and renders. Product and event logos belong to their owners. If you use the Android robot, credit it: *"The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License."*
 - The palette is inspired by Google's brand colours. This project is not affiliated with or endorsed by Google.
+
+## Contributing
+
+`main` is protected: every change goes through a pull request.
+
+1. Create a branch from `main` with a descriptive name, e.g. `feature/agenda-progress-bar` or `fix/table-row-contrast`.
+2. Keep `tokens/tokens.json`, `tokens/tokens.css` and the tables in `DESIGN.md` in sync, and refresh the matching image in `docs/preview/` when a component changes.
+3. Open a PR into `main`. The **Showcase site** workflow builds the site and checks that every linked file exists.
+4. When the PR is merged, the same workflow deploys the site to GitHub Pages automatically.
 
 ## License
 

@@ -1,28 +1,231 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Android Talk Design System</title>
+<meta name="description" content="An Android-themed, AI-ready slide design system for tech talks: 27 components, design tokens and a DESIGN.md any AI tool can use.">
+<meta property="og:title" content="Android Talk Design System">
+<meta property="og:description" content="AI-ready slide design system for tech talks, created from four conference talks.">
+<meta property="og:image" content="docs/banner.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2334a853'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23e5fb79'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="tokens/tokens.css">
 <link rel="stylesheet" href="css/slides.css">
 <style>
-body{margin:0;font-family:var(--font-sans);color:var(--ink);background:var(--surface)}
-header{padding:64px 16px 24px;max-width:1200px;margin:0 auto}
-h1{font-size:56px;line-height:1.05;margin:0} h1 .g{color:var(--green)} header p{color:var(--ink-muted);font-size:18px;max-width:720px}
-.links a{display:inline-block;margin:8px 8px 0 0;padding:10px 20px;border-radius:999px;background:var(--lime);color:var(--on-lime);font-weight:600;text-decoration:none}
-main{max-width:1200px;margin:0 auto;padding:0 16px 80px} h2{font-size:28px;margin:48px 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
-.card{text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:4px}
-.frame{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--hairline);container-type:inline-size}
-.frame iframe{position:absolute;top:0;left:0;width:1920px;height:1080px;border:0;pointer-events:none;transform-origin:0 0;transform:scale(calc(100cqw / 1920px))}
-.card b{margin-top:8px} .card span{color:var(--ink-muted);font-size:14px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--font-sans);color:var(--ink);background:var(--surface);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--hairline)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;white-space:nowrap}
+.brand i{width:22px;height:22px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:inset 0 0 0 6px var(--green),inset 0 0 0 11px var(--lime)}
+.links{display:flex;gap:18px;margin-left:auto;font-size:15px}
+.links a{text-decoration:none;color:var(--ink-soft)} .links a:hover{color:var(--green)}
+.gh{padding:8px 16px;border-radius:999px;background:var(--code-bg);color:#fff!important;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap}
+@media (max-width:760px){.links{display:none} .gh{margin-left:auto} .kicker{font-size:13px;padding:7px 14px}}
+/* hero */
+.hero{background:var(--green);color:var(--on-green);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:80px}
+.kicker{display:inline-block;background:var(--lime);color:var(--on-lime);font-weight:600;font-size:15px;padding:8px 18px;border-radius:999px}
+.hero h1{font-size:clamp(44px,6.4vw,84px);line-height:.98;margin:22px 0 0;letter-spacing:-.01em}
+.hero h1 b{color:var(--lime)}
+.hero p{font-size:20px;line-height:1.55;max-width:540px;margin:22px 0 0}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px}
+.btn.l{background:var(--lime);color:var(--on-lime)} .btn.w{background:#fff;color:var(--ink)} .btn.o{border:2px solid rgba(255,255,255,.7);color:#fff}
+.heroart{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;justify-self:center}
+.heroart .blob{position:absolute;inset:0;width:100%;height:100%;background:var(--green-tint)}
+.heroart a{position:absolute;left:6%;right:6%;top:50%;transform:translateY(-50%) rotate(-3deg);border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.heroart a img{display:block;width:100%;height:auto}
+.heroart .s2{transform:translateY(-10%) rotate(4deg);left:22%;right:-6%;top:56%}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-top:48px} .heroart{max-width:420px}}
+/* sections */
+section.sec{padding:88px 0 0}
+.eyebrow{color:var(--green);font-weight:600;font-size:15px;letter-spacing:.02em}
+h2{font-size:clamp(32px,4vw,48px);line-height:1.08;margin:10px 0 0;font-weight:400}
+h2 .b{color:var(--blue)} h2 .g{color:var(--green)}
+.lead{font-size:18px;line-height:1.6;color:var(--ink-muted);max-width:720px;margin:16px 0 0}
+h3{font-size:22px;margin:44px 0 16px;font-weight:500}
+/* talks */
+.talks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:32px}
+.talk{border-radius:var(--radius-card);background:var(--green-tint);padding:24px}
+.talk:nth-child(2n){background:var(--blue-tint)}
+.talk b{display:block;font-size:18px;line-height:1.35;font-weight:500}
+.talk span{display:inline-block;margin-top:14px;font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;background:#fff;color:var(--ink-soft)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px;margin-top:36px}
+.step .dr-disc{width:72px;height:72px;font-size:22px}
+.step b{display:block;font-size:20px;margin-top:18px;font-weight:500}
+.step p{color:var(--ink-muted);line-height:1.55;margin:8px 0 0}
+.prompt{position:relative;margin-top:36px;background:var(--code-bg);color:var(--code-text);border-radius:var(--radius-code);padding:28px 28px 28px;font-family:var(--font-mono);font-size:15px;line-height:1.7}
+.prompt .lbl{color:var(--code-keyword);font-size:13px;display:block;margin-bottom:10px}
+.copy{position:absolute;top:18px;right:18px;border:0;cursor:pointer;border-radius:999px;padding:8px 16px;font:600 13px var(--font-sans);background:var(--lime);color:var(--on-lime)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.tools span{padding:8px 16px;border-radius:999px;border:2px solid var(--card-border);color:var(--ink-soft);font-weight:500;font-size:14px}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.comp{display:flex;flex-direction:column;text-decoration:none}
+.comp img{width:100%;height:auto;border-radius:16px;display:block;transition:transform .15s}
+.comp:hover img{transform:translateY(-3px)}
+.cn{font-weight:600;margin-top:12px} .cs{color:var(--ink-muted);font-size:14px;margin-top:2px}
+/* foundations */
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.swc{border-radius:20px;overflow:hidden;border:1px solid var(--hairline)}
+.swc i{display:block;height:84px}
+.swc div{padding:10px 14px 14px} .swc b{display:block;font-size:14px} .swc code{font-size:12px;color:var(--ink-muted)}
+.ty{border-radius:var(--radius-card);border:1px solid var(--hairline);overflow:hidden}
+.tyr{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:baseline;padding:16px 22px;border-top:1px solid var(--hairline)}
+.tyr:first-child{border-top:0}
+.tyr .m{font-size:13px;color:var(--ink-muted);font-family:var(--font-mono)}
+.tyr .s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:640px){.tyr{grid-template-columns:1fr}}
+.shapes{display:flex;flex-wrap:wrap;gap:22px}
+.shapes figure{margin:0;text-align:center} .shapes .dr-shape{width:96px;height:96px}
+.shapes figcaption{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);margin-top:8px}
+.radii{display:flex;flex-wrap:wrap;gap:22px}
+.radii figure{margin:0;text-align:center} .radii i{display:block;width:120px;height:84px;background:var(--blue-tint)}
+.radii figcaption{font-family:var(--font-mono);font-size:12px;color:var(--ink-muted);margin-top:8px}
+/* deck */
+.deckf{position:relative;aspect-ratio:16/9;border-radius:var(--radius-card);overflow:hidden;background:#111;margin-top:32px}
+.deckf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hint{color:var(--ink-muted);font-size:14px;margin-top:12px}
+/* footer */
+footer{margin-top:100px;background:var(--code-bg);color:var(--code-text)}
+footer .wrap{padding:48px 16px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+footer a{color:var(--code-keyword)} footer p{margin:6px 0 0;color:#9fb0c3;font-size:14px}
 </style>
 </head>
 <body>
-<header><h1>Android Talk <span class="g">Design System</span></h1>
-<p>A 1920×1080 slide system for tech talks: white canvases, green and lime accents, blue/green highlight words, dark code panels. Give <code>DESIGN.md</code> to any AI tool and ask for slides.</p>
-<div class="links"><a href="DESIGN.md">DESIGN.md</a><a href="examples/deck.html">Example deck</a></div></header>
-<main><h2>Slides</h2><div class="grid"><a class="card" href="components/AgendaSlide.html"><div class="frame"><iframe src="components/AgendaSlide.html" loading="lazy" tabindex="-1" title="AgendaSlide"></iframe></div><b>AgendaSlide</b><span>Talk outline</span></a><a class="card" href="components/ClosingSlide.html"><div class="frame"><iframe src="components/ClosingSlide.html" loading="lazy" tabindex="-1" title="ClosingSlide"></iframe></div><b>ClosingSlide</b><span>Thankyou + QR</span></a><a class="card" href="components/DemoSlide.html"><div class="frame"><iframe src="components/DemoSlide.html" loading="lazy" tabindex="-1" title="DemoSlide"></iframe></div><b>DemoSlide</b><span>Demo section break</span></a><a class="card" href="components/GreenStatement.html"><div class="frame"><iframe src="components/GreenStatement.html" loading="lazy" tabindex="-1" title="GreenStatement"></iframe></div><b>GreenStatement</b><span>Section interstitial</span></a><a class="card" href="components/SectionDivider.html"><div class="frame"><iframe src="components/SectionDivider.html" loading="lazy" tabindex="-1" title="SectionDivider"></iframe></div><b>SectionDivider</b><span>Numbered chapter break</span></a><a class="card" href="components/SpeakerIntro.html"><div class="frame"><iframe src="components/SpeakerIntro.html" loading="lazy" tabindex="-1" title="SpeakerIntro"></iframe></div><b>SpeakerIntro</b><span>About me</span></a><a class="card" href="components/StatementSlide.html"><div class="frame"><iframe src="components/StatementSlide.html" loading="lazy" tabindex="-1" title="StatementSlide"></iframe></div><b>StatementSlide</b><span>Question over the grid</span></a><a class="card" href="components/TitleSlide.html"><div class="frame"><iframe src="components/TitleSlide.html" loading="lazy" tabindex="-1" title="TitleSlide"></iframe></div><b>TitleSlide</b><span>Opening slide</span></a></div><h2>Labels</h2><div class="grid"><a class="card" href="components/ChipSet.html"><div class="frame"><iframe src="components/ChipSet.html" loading="lazy" tabindex="-1" title="ChipSet"></iframe></div><b>ChipSet</b><span>Badges and status chips</span></a><a class="card" href="components/Headline.html"><div class="frame"><iframe src="components/Headline.html" loading="lazy" tabindex="-1" title="Headline"></iframe></div><b>Headline</b><span>Slide headline</span></a><a class="card" href="components/TopicTag.html"><div class="frame"><iframe src="components/TopicTag.html" loading="lazy" tabindex="-1" title="TopicTag"></iframe></div><b>TopicTag</b><span>Slide label</span></a></div><h2>Content</h2><div class="grid"><a class="card" href="components/BulletList.html"><div class="frame"><iframe src="components/BulletList.html" loading="lazy" tabindex="-1" title="BulletList"></iframe></div><b>BulletList</b><span>Bullets with highlights</span></a><a class="card" href="components/CalloutNote.html"><div class="frame"><iframe src="components/CalloutNote.html" loading="lazy" tabindex="-1" title="CalloutNote"></iframe></div><b>CalloutNote</b><span>Tip and note boxes</span></a><a class="card" href="components/CodeBlock.html"><div class="frame"><iframe src="components/CodeBlock.html" loading="lazy" tabindex="-1" title="CodeBlock"></iframe></div><b>CodeBlock</b><span>Kotlin on dark</span></a><a class="card" href="components/CodePair.html"><div class="frame"><iframe src="components/CodePair.html" loading="lazy" tabindex="-1" title="CodePair"></iframe></div><b>CodePair</b><span>Before / after code</span></a><a class="card" href="components/DataTable.html"><div class="frame"><iframe src="components/DataTable.html" loading="lazy" tabindex="-1" title="DataTable"></iframe></div><b>DataTable</b><span>Comparison table</span></a><a class="card" href="components/FeatureCards.html"><div class="frame"><iframe src="components/FeatureCards.html" loading="lazy" tabindex="-1" title="FeatureCards"></iframe></div><b>FeatureCards</b><span>Outlined card row</span></a><a class="card" href="components/FlowDiagram.html"><div class="frame"><iframe src="components/FlowDiagram.html" loading="lazy" tabindex="-1" title="FlowDiagram"></iframe></div><b>FlowDiagram</b><span>Nodes and connectors</span></a><a class="card" href="components/KeyTakeaways.html"><div class="frame"><iframe src="components/KeyTakeaways.html" loading="lazy" tabindex="-1" title="KeyTakeaways"></iframe></div><b>KeyTakeaways</b><span>Recap with checks</span></a><a class="card" href="components/NumberedSteps.html"><div class="frame"><iframe src="components/NumberedSteps.html" loading="lazy" tabindex="-1" title="NumberedSteps"></iframe></div><b>NumberedSteps</b><span>Discs and numerals</span></a><a class="card" href="components/PromptResponse.html"><div class="frame"><iframe src="components/PromptResponse.html" loading="lazy" tabindex="-1" title="PromptResponse"></iframe></div><b>PromptResponse</b><span>Prompt and model output</span></a><a class="card" href="components/ResourcesSlide.html"><div class="frame"><iframe src="components/ResourcesSlide.html" loading="lazy" tabindex="-1" title="ResourcesSlide"></iframe></div><b>ResourcesSlide</b><span>Links and QR</span></a><a class="card" href="components/ScreenshotRow.html"><div class="frame"><iframe src="components/ScreenshotRow.html" loading="lazy" tabindex="-1" title="ScreenshotRow"></iframe></div><b>ScreenshotRow</b><span>Phone screens with captions</span></a><a class="card" href="components/StatHighlight.html"><div class="frame"><iframe src="components/StatHighlight.html" loading="lazy" tabindex="-1" title="StatHighlight"></iframe></div><b>StatHighlight</b><span>Big numbers</span></a><a class="card" href="components/Timeline.html"><div class="frame"><iframe src="components/Timeline.html" loading="lazy" tabindex="-1" title="Timeline"></iframe></div><b>Timeline</b><span>Horizontal steps</span></a><a class="card" href="components/TintTiles.html"><div class="frame"><iframe src="components/TintTiles.html" loading="lazy" tabindex="-1" title="TintTiles"></iframe></div><b>TintTiles</b><span>Mint, blue and solid tiles</span></a><a class="card" href="components/VersusSplit.html"><div class="frame"><iframe src="components/VersusSplit.html" loading="lazy" tabindex="-1" title="VersusSplit"></iframe></div><b>VersusSplit</b><span>A vs B</span></a></div></main>
-<script>/* fallback for browsers without typed calc in transforms */
-document.querySelectorAll('.frame').forEach(function(f){var i=f.querySelector('iframe');function s(){i.style.transform='scale('+(f.clientWidth/1920)+')';}new ResizeObserver(s).observe(f);});</script>
-</body></html>
+<nav><div class="wrap">
+<a class="brand" href="#top"><i></i>Android Talk Design System</a>
+<div class="links"><a href="#talks">Talks</a><a href="#ai">Use with AI</a><a href="#components">Components</a><a href="#foundations">Foundations</a><a href="#deck">Example deck</a></div>
+<a class="gh" href="https://github.com/dinoy-raj/android-talk-design-system">GitHub</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div>
+<span class="kicker">27 components · DESIGN.md · AI-ready</span>
+<h1>Android Talk<br>Design System<b>.</b></h1>
+<p>An Android-themed slide system for tech talks. Hand <code>DESIGN.md</code> to any AI tool and get decks with clean white canvases, green and lime accents, highlight words and Kotlin code panels.</p>
+<div class="btns"><a class="btn l" href="DESIGN.md">Get DESIGN.md</a><a class="btn w" href="https://github.com/dinoy-raj/android-talk-design-system/fork">Fork on GitHub</a><a class="btn o" href="examples/deck.html">Open example deck</a></div>
+</div>
+<div class="heroart" aria-hidden="true"><span class="blob dr-shape is-cookie12"></span>
+<a href="components/TitleSlide.html" tabindex="-1"><img src="docs/preview/TitleSlide.png" alt=""></a>
+<a class="s2" href="components/KeyTakeaways.html" tabindex="-1"><img src="docs/preview/KeyTakeaways.png" alt=""></a></div>
+</div></header>
+
+<main class="wrap">
+<section class="sec" id="talks">
+<div class="eyebrow">Where it comes from</div>
+<h2>Created from <span class="g">four conference talks</span></h2>
+<p class="lead">Every colour, size and pattern was measured from the slides of four talks by Dinoy Raj. See the original decks on <a href="https://www.slideshare.net/dinoykraj">SlideShare</a>.</p>
+<div class="talks">
+<div class="talk"><b>Build Your Pocket Brain: Tiny On-Device LLMs via MediaPipe on Android</b><span>DevFest Dubai · Mobile Developers Week</span></div>
+<div class="talk"><b>Beyond the Grid: Crafting a Custom Android Launcher from Scratch</b><span>DevFest Mumbai</span></div>
+<div class="talk"><b>Compiler Magic &amp; Stability: Optimising Compose Recomposition</b><span>FOSSASIA Summit 2026</span></div>
+<div class="talk"><b>Supercharging Android Apps with On-Device AI: Gemini Nano</b><span>droidcon Uganda 2025</span></div>
+</div>
+</section>
+
+<section class="sec" id="ai">
+<div class="eyebrow">Use with AI</div>
+<h2>One file, <span class="b">any AI tool</span>, on-brand slides</h2>
+<div class="steps">
+<div class="step"><div class="dr-disc is-cookie9">01</div><b>Give it DESIGN.md</b><p>Attach or paste the spec: rules, tokens, type scale and all 27 components.</p></div>
+<div class="step"><div class="dr-disc is-clover">02</div><b>Describe your talk</b><p>Title, sections, demos. Pick the TopicTag or Headline style.</p></div>
+<div class="step"><div class="dr-disc is-sunny">03</div><b>Get an HTML deck</b><p>1920×1080 slides that link the tokens and slide CSS from this repo.</p></div>
+<div class="step"><div class="dr-disc is-flower">04</div><b>Present or export</b><p>Arrow keys to present, or ask for PowerPoint, Google Slides or Keynote using the same spec.</p></div>
+</div>
+<div class="prompt"><span class="lbl">// example prompt</span><span id="prompt">Using the attached DESIGN.md, create a 20-slide HTML deck for my talk &quot;Building Offline-First Apps with Kotlin Multiplatform&quot;. Use the TopicTag header style, one StatementSlide per section, two demos, KeyTakeaways and the ClosingSlide. Output one HTML file that links tokens/tokens.css and css/slides.css.</span><button class="copy" type="button" data-copy="prompt">Copy</button></div>
+<div class="tools"><span>Claude</span><span>ChatGPT</span><span>Gemini</span><span>Claude Code</span><span>Codex</span><span>Cursor</span><span>Copilot</span><span>v0 · Lovable · Bolt</span></div>
+</section>
+
+<section class="sec" id="components">
+<div class="eyebrow">Components</div>
+<h2>27 slides, <span class="g">ready to copy</span></h2>
+<p class="lead">Each one is a standalone 1920×1080 HTML slide. Open it, copy the markup, replace the content.</p>
+<h3>Slides</h3><div class="gal"><a class="comp" href="components/AgendaSlide.html"><img src="docs/preview/AgendaSlide.png" alt="AgendaSlide slide" loading="lazy" width="960" height="540"><span class="cn">AgendaSlide</span><span class="cs">Talk outline</span></a>
+<a class="comp" href="components/ClosingSlide.html"><img src="docs/preview/ClosingSlide.png" alt="ClosingSlide slide" loading="lazy" width="960" height="540"><span class="cn">ClosingSlide</span><span class="cs">Thankyou + QR</span></a>
+<a class="comp" href="components/DemoSlide.html"><img src="docs/preview/DemoSlide.png" alt="DemoSlide slide" loading="lazy" width="960" height="540"><span class="cn">DemoSlide</span><span class="cs">Demo section break</span></a>
+<a class="comp" href="components/GreenStatement.html"><img src="docs/preview/GreenStatement.png" alt="GreenStatement slide" loading="lazy" width="960" height="540"><span class="cn">GreenStatement</span><span class="cs">Section interstitial</span></a>
+<a class="comp" href="components/SectionDivider.html"><img src="docs/preview/SectionDivider.png" alt="SectionDivider slide" loading="lazy" width="960" height="540"><span class="cn">SectionDivider</span><span class="cs">Numbered chapter break</span></a>
+<a class="comp" href="components/SpeakerIntro.html"><img src="docs/preview/SpeakerIntro.png" alt="SpeakerIntro slide" loading="lazy" width="960" height="540"><span class="cn">SpeakerIntro</span><span class="cs">About me</span></a>
+<a class="comp" href="components/StatementSlide.html"><img src="docs/preview/StatementSlide.png" alt="StatementSlide slide" loading="lazy" width="960" height="540"><span class="cn">StatementSlide</span><span class="cs">Question over the grid</span></a>
+<a class="comp" href="components/TitleSlide.html"><img src="docs/preview/TitleSlide.png" alt="TitleSlide slide" loading="lazy" width="960" height="540"><span class="cn">TitleSlide</span><span class="cs">Opening slide</span></a></div>
+<h3>Labels</h3><div class="gal"><a class="comp" href="components/ChipSet.html"><img src="docs/preview/ChipSet.png" alt="ChipSet slide" loading="lazy" width="960" height="540"><span class="cn">ChipSet</span><span class="cs">Badges and status chips</span></a>
+<a class="comp" href="components/Headline.html"><img src="docs/preview/Headline.png" alt="Headline slide" loading="lazy" width="960" height="540"><span class="cn">Headline</span><span class="cs">Slide headline</span></a>
+<a class="comp" href="components/TopicTag.html"><img src="docs/preview/TopicTag.png" alt="TopicTag slide" loading="lazy" width="960" height="540"><span class="cn">TopicTag</span><span class="cs">Slide label</span></a></div>
+<h3>Content</h3><div class="gal"><a class="comp" href="components/BulletList.html"><img src="docs/preview/BulletList.png" alt="BulletList slide" loading="lazy" width="960" height="540"><span class="cn">BulletList</span><span class="cs">Bullets with highlights</span></a>
+<a class="comp" href="components/CalloutNote.html"><img src="docs/preview/CalloutNote.png" alt="CalloutNote slide" loading="lazy" width="960" height="540"><span class="cn">CalloutNote</span><span class="cs">Tip and note boxes</span></a>
+<a class="comp" href="components/CodeBlock.html"><img src="docs/preview/CodeBlock.png" alt="CodeBlock slide" loading="lazy" width="960" height="540"><span class="cn">CodeBlock</span><span class="cs">Kotlin on dark</span></a>
+<a class="comp" href="components/CodePair.html"><img src="docs/preview/CodePair.png" alt="CodePair slide" loading="lazy" width="960" height="540"><span class="cn">CodePair</span><span class="cs">Before / after code</span></a>
+<a class="comp" href="components/DataTable.html"><img src="docs/preview/DataTable.png" alt="DataTable slide" loading="lazy" width="960" height="540"><span class="cn">DataTable</span><span class="cs">Comparison table</span></a>
+<a class="comp" href="components/FeatureCards.html"><img src="docs/preview/FeatureCards.png" alt="FeatureCards slide" loading="lazy" width="960" height="540"><span class="cn">FeatureCards</span><span class="cs">Outlined card row</span></a>
+<a class="comp" href="components/FlowDiagram.html"><img src="docs/preview/FlowDiagram.png" alt="FlowDiagram slide" loading="lazy" width="960" height="540"><span class="cn">FlowDiagram</span><span class="cs">Nodes and connectors</span></a>
+<a class="comp" href="components/KeyTakeaways.html"><img src="docs/preview/KeyTakeaways.png" alt="KeyTakeaways slide" loading="lazy" width="960" height="540"><span class="cn">KeyTakeaways</span><span class="cs">Recap with checks</span></a>
+<a class="comp" href="components/NumberedSteps.html"><img src="docs/preview/NumberedSteps.png" alt="NumberedSteps slide" loading="lazy" width="960" height="540"><span class="cn">NumberedSteps</span><span class="cs">Discs and numerals</span></a>
+<a class="comp" href="components/PromptResponse.html"><img src="docs/preview/PromptResponse.png" alt="PromptResponse slide" loading="lazy" width="960" height="540"><span class="cn">PromptResponse</span><span class="cs">Prompt and model output</span></a>
+<a class="comp" href="components/ResourcesSlide.html"><img src="docs/preview/ResourcesSlide.png" alt="ResourcesSlide slide" loading="lazy" width="960" height="540"><span class="cn">ResourcesSlide</span><span class="cs">Links and QR</span></a>
+<a class="comp" href="components/ScreenshotRow.html"><img src="docs/preview/ScreenshotRow.png" alt="ScreenshotRow slide" loading="lazy" width="960" height="540"><span class="cn">ScreenshotRow</span><span class="cs">Phone screens with captions</span></a>
+<a class="comp" href="components/StatHighlight.html"><img src="docs/preview/StatHighlight.png" alt="StatHighlight slide" loading="lazy" width="960" height="540"><span class="cn">StatHighlight</span><span class="cs">Big numbers</span></a>
+<a class="comp" href="components/Timeline.html"><img src="docs/preview/Timeline.png" alt="Timeline slide" loading="lazy" width="960" height="540"><span class="cn">Timeline</span><span class="cs">Horizontal steps</span></a>
+<a class="comp" href="components/TintTiles.html"><img src="docs/preview/TintTiles.png" alt="TintTiles slide" loading="lazy" width="960" height="540"><span class="cn">TintTiles</span><span class="cs">Mint, blue and solid tiles</span></a>
+<a class="comp" href="components/VersusSplit.html"><img src="docs/preview/VersusSplit.png" alt="VersusSplit slide" loading="lazy" width="960" height="540"><span class="cn">VersusSplit</span><span class="cs">A vs B</span></a></div>
+</section>
+
+<section class="sec" id="foundations">
+<div class="eyebrow">Foundations</div>
+<h2>Tokens, type and <span class="b">expressive shapes</span></h2>
+<p class="lead">Read live from <a href="tokens/tokens.json"><code>tokens/tokens.json</code></a>.</p>
+<h3>Colour</h3><div class="sw" id="colors"></div>
+<h3>Type scale</h3><div class="ty" id="type"></div>
+<h3>Material 3 Expressive shapes</h3>
+<div class="shapes">
+<figure><span class="dr-shape is-cookie9"></span><figcaption>is-cookie9</figcaption></figure>
+<figure><span class="dr-shape is-cookie12"></span><figcaption>is-cookie12</figcaption></figure>
+<figure><span class="dr-shape is-clover"></span><figcaption>is-clover</figcaption></figure>
+<figure><span class="dr-shape is-sunny"></span><figcaption>is-sunny</figcaption></figure>
+<figure><span class="dr-shape is-flower"></span><figcaption>is-flower</figcaption></figure>
+<figure><span class="dr-shape is-burst"></span><figcaption>is-burst</figcaption></figure>
+</div>
+<h3>Corner radius</h3><div class="radii" id="radii"></div>
+</section>
+
+<section class="sec" id="deck">
+<div class="eyebrow">Example deck</div>
+<h2>Ten slides, <span class="g">one file</span></h2>
+<div class="deckf"><iframe src="examples/deck.html" title="Example deck"></iframe></div>
+<p class="hint">Click inside, then use ← → to move. <a href="examples/deck.html">Open fullscreen</a></p>
+</section>
+</main>
+
+<footer><div class="wrap">
+<div><b>Android Talk Design System</b><p>By Dinoy Raj · Code MIT · Docs CC BY 4.0 · Not affiliated with Google.</p></div>
+<div><a href="https://github.com/dinoy-raj/android-talk-design-system">GitHub</a> · <a href="https://www.slideshare.net/dinoykraj">SlideShare</a> · <a href="DESIGN.md">DESIGN.md</a> · <a href="llms.txt">llms.txt</a></div>
+</div></footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1500);});}catch(e){}
+});});
+fetch('tokens/tokens.json').then(function(r){return r.json();}).then(function(t){
+  var c=document.getElementById('colors');
+  t.color.tokens.forEach(function(x){var d=document.createElement('div');d.className='swc';d.title=x.usage;
+    d.innerHTML='<i style="background:'+x.value+'"></i><div><b>'+x.name+'</b><code>'+x.value+'</code></div>';c.appendChild(d);});
+  var ty=document.getElementById('type');
+  t.type.groups.forEach(function(g){g.styles.forEach(function(s){
+    var px=parseFloat(s.fontSize),show=Math.min(px*0.5,64);
+    var r=document.createElement('div');r.className='tyr';
+    r.innerHTML='<div class="m">'+s.name+'<br>'+s.fontSize+' / '+s.fontWeight+'</div><div class="s" style="font-family:var(--font-'+(s.family||g.family)+');font-size:'+show+'px;font-weight:'+s.fontWeight+'">'+(s.sample||s.name)+'</div>';
+    ty.appendChild(r);});});
+  var rd=document.getElementById('radii');
+  t.radius.tokens.forEach(function(x){var v=parseFloat(x.value),f=document.createElement('figure');
+    f.innerHTML='<i style="border-radius:'+Math.min(v,42)+'px"></i><figcaption>'+x.name+' · '+x.value+'</figcaption>';rd.appendChild(f);});
+}).catch(function(){document.getElementById('colors').textContent='Open this page from a web server (or GitHub Pages) to load the tokens.';});
+</script>
+</body>
+</html>
