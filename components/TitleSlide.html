@@ -19,6 +19,7 @@ The opening slide: event pill, a three-line title with highlight words, the spea
 - Title: `title` style (96/116, 700) in `ink`. Highlight the *subject* in `blue` and the *platform or payoff* in `green` (e.g. "Tiny On-Device LLMs" blue, "MediaPipe" green). Never more than two highlight runs.
 - Speaker pill: `lime-deep`, flush to the left edge with its right end rounded; name in `speaker`, role in `speaker-role` `green`.
 - Variant (Beyond the Grid, Compiler Magic): small kicker line in `blue`/`ink-muted` above the title, title at 72px, speaker as plain text — "Dinoy Raj" in `blue` 500 with role under it — at the bottom-left; event as a small dark pill or the event logo.
+- Hero backdrop: a large `green-tint` Material 3 Expressive shape (`dr-shape is-cookie12` or `is-sunny`, ~480px) with the render placed over it, slightly overflowing.
 - Don't add a background grid or gradient here; white only.
 -->
 <div class="dr-stage"><div class="dr-slide">
@@ -28,7 +29,7 @@ The opening slide: event pill, a three-line title with highlight words, the spea
 <div style="position:absolute;top:820px;left:0;height:78px;padding:0 64px 0 152px;border-radius:0 999px 999px 0;background:var(--lime-deep);display:flex;flex-direction:column;justify-content:center">
   <div style="font-size:32px;line-height:40px;font-weight:700">Your Name</div>
   <div style="font-size:18px;line-height:24px;font-weight:500;color:var(--green)">Your Role at Company</div></div>
-<div style="position:absolute;right:96px;top:330px;width:440px;height:440px;border-radius:32px;background:var(--green-wash);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-size:28px">hero render</div>
+<div class="dr-shape is-cookie12" style="position:absolute;right:96px;top:310px;width:480px;height:480px;background:var(--green-tint);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-size:28px">hero render</div>
 
 </div></div>
 <script>

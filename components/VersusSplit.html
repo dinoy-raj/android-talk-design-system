@@ -17,7 +17,7 @@ Two opposing ideas side by side: white half vs green half, with a lime "vs" disc
 
 - Left half `surface` with the name in `green` 120px/700; right half a `green` panel inset 24px from the edges with `radius-card` corners, name in `on-green`.
 - Descriptions 28px (`ink-muted` / `on-green`); traits as `dr-badge` (green-tint on white, lime on green).
-- 160px `lime` disc with "vs" in `on-lime`, centred on the seam.
+- 180px `lime` sunny shape (`dr-shape is-sunny is-lime`) with "vs" in `on-lime`, centred on the seam.
 - Put the "good"/default side on the left (white), the problem/twist on the right (green).
 - Header variant for denser comparisons: two `green-tint` pills as column headers with bullets under each (ProtoBuf vs FlatBuffers).
 -->
@@ -31,7 +31,7 @@ Two opposing ideas side by side: white half vs green half, with a lime "vs" disc
 <div style="font-size:120px;line-height:1;font-weight:700;color:var(--on-green)">UnStable</div>
 <div style="font-size:28px;color:var(--on-green);margin-top:28px">Interfaces · List · var properties</div>
 <div style="display:flex;gap:16px;margin-top:48px"><span class="dr-badge is-lime">Recomposes</span></div></div>
-<div style="position:absolute;left:880px;top:460px;width:160px;height:160px;border-radius:50%;background:var(--lime);color:var(--on-lime);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:700">vs</div>
+<div class="dr-shape is-sunny" style="position:absolute;left:870px;top:450px;width:180px;height:180px;background:var(--lime);color:var(--on-lime);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:700">vs</div>
 
 </div></div>
 <script>

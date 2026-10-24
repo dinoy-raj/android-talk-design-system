@@ -133,6 +133,7 @@ One family (`--font-sans`, Google Sans) plus `--font-mono` for code. Headlines a
 - Two-column slides: text in the left ~45%, visual in the right ~55%. Centred code and tables keep ~200–240px side margins.
 - **Background grid** (statement and sparse slides only): 2px `--hairline` lines every 528px (offset 263px / 274px), with small white gaps where lines cross — use `<div class="dr-grid"></div>`.
 - If a slide needs two visuals, use two equal panels with a green `dr-cap` caption pill under each.
+- **Material 3 Expressive shapes** (`is-cookie9`, `is-cookie12`, `is-clover`, `is-sunny`, `is-flower`, `is-burst`) replace circles and plain backdrops wherever possible: numbered discs (`dr-disc is-…`), agenda numbers, takeaway markers and timeline dots (`dr-shape`), the "vs" badge, icon backdrops in feature cards, the emphasis tile, and the hero and portrait backdrops. Vary the shape between siblings; keep size and colour equal. Plain circles stay only for 14px bullet dots and validation ticks.
 
 ## 8. Building blocks (classes in `css/slides.css`)
 
@@ -176,7 +177,7 @@ The talk outline: 3–6 numbered rows, the current section highlighted, with an 
 
 **Consumer provides:** section titles (Title Case, ≤ 4 words), the index of the current section, and optionally one fact for the tile (demo count, duration).
 
-- Rows 136px tall; numbers in 80px discs (`dr-disc` sized down). Done/current items use solid `green` discs; upcoming items use `green-wash` discs with `green` numbers and `ink-muted` labels.
+- Rows 136px tall; numbers in 84px Material 3 Expressive shapes (`dr-disc is-cookie9`, `is-clover`, `is-sunny`, `is-flower`, `is-burst`, one per row). Done/current items are solid `green`; upcoming items are `green-tint` with `green` numbers and `ink-muted` labels.
 - Current row: `green-tint` pill background plus a `lime` "Now" badge.
 - Labels in `step-label` (48/56).
 - Fact tile: `green` block, `radius-card`, a large white number (120px/700) and a 36px label.
@@ -243,7 +244,7 @@ The "who's talking" slide: portrait on a soft panel, name, one-line pitch, focus
 
 **Consumer provides:** a portrait cut-out (transparent PNG), the one-line pitch with a blue and a green highlight, 2–4 focus areas, and 1–2 stats.
 
-- Portrait on a `blue-panel` block (`radius-card`), with a small `lime` greeting pill overlapping its bottom-right corner.
+- Portrait cut-out over a `blue-panel` Material 3 Expressive shape (`dr-shape is-cookie12`, 620px square), with a small `lime` greeting pill overlapping its bottom-right edge.
 - Name in `title` (96/116, 700); pitch at 40/52 with highlights.
 - Focus areas as `dr-opill` outline pills (2px `card-border`, `ink-soft` 28px/500).
 - Stats: value 64px/700 in `green` or `blue`, label 24px `ink-muted`. Two stats max; use real, current numbers.
@@ -275,10 +276,8 @@ The opening slide: event pill, a three-line title with highlight words, the spea
 - Title: `title` style (96/116, 700) in `ink`. Highlight the *subject* in `blue` and the *platform or payoff* in `green` (e.g. "Tiny On-Device LLMs" blue, "MediaPipe" green). Never more than two highlight runs.
 - Speaker pill: `lime-deep`, flush to the left edge with its right end rounded; name in `speaker`, role in `speaker-role` `green`.
 - Variant (Beyond the Grid, Compiler Magic): small kicker line in `blue`/`ink-muted` above the title, title at 72px, speaker as plain text — "Dinoy Raj" in `blue` 500 with role under it — at the bottom-left; event as a small dark pill or the event logo.
+- Hero backdrop: a large `green-tint` Material 3 Expressive shape (`dr-shape is-cookie12` or `is-sunny`, ~480px) with the render placed over it, slightly overflowing.
 - Don't add a background grid or gradient here; white only.
-
-
-### Labels
 
 #### ChipSet
 
@@ -397,7 +396,7 @@ A row of 3–5 white outlined cards, each an icon, a title and a one-line descri
 **Consumer provides:** per card a 3D/glossy icon (Google-style 3D illustrations in the past decks), a title (1–3 words) and a description (≤ 6 words, two lines).
 
 - `dr-card`: `surface`, 2px `card-border`, `radius-card`; title `card-title` and body `card-body`, both `ink-muted`, centred.
-- Equal widths, 44px gaps, icon in the top half.
+- Equal widths, 44px gaps, icon in the top half sitting on a `blue-tint` Material 3 Expressive shape (`dr-shape`, 180px), a different shape per card (cookie9, clover, sunny, flower).
 - Status variant: cards labelled with a state (Downloadable / Downloading / Available / Unavailable).
 - Don't colour the cards; colour comes from the icons.
 
@@ -503,8 +502,8 @@ A left-to-right sequence of 3–6 steps on a dashed line, for pipelines, setup f
 
 **Consumer provides:** step labels (or years), a 1–3 word heading and a one-line detail for each; which step is the destination.
 
-- Dashed `card-border` line across the slide; each step = lime `dr-node` pill on top, a 2px stem, a 40px `green` dot on the line, heading 30px/500 and detail 24/32 `ink-muted` below.
-- The destination step: solid `green` pill with white text and a larger `lime` dot ringed in `green`.
+- Dashed `card-border` line across the slide; each step = lime `dr-node` pill on top, a 2px stem, a 44px `green` cookie shape (`dr-shape is-cookie9`) on the line, heading 30px/500 and detail 24/32 `ink-muted` below.
+- The destination step: solid `green` pill with white text and a larger 76px `green` sunny shape (`dr-shape is-sunny`).
 - Equal columns; ≤ 6 steps. Longer flows go to `FlowDiagram`.
 
 #### TintTiles
@@ -517,7 +516,7 @@ Soft tinted tiles for grouping concepts, logos or options; the centre tile can c
 
 - `dr-tile` on `green-tint`; `is-blue` on `blue-tint`; `is-outline` = white with a `green-tint` 2px border; `is-solid` = `green` with white content for the one emphasised item.
 - Tile label in `green` (or `blue` on blue tiles) at 28–36px/500; description 22px `ink`.
-- Corners `radius-card` (32px) on every tile, including the inner logo or emphasis block (24px+). Whole-slide variant: `is-mint` slide background with white panels on it (Clean Architecture slides).
+- Corners `radius-card` (32px) on every tile. The emphasis or logo backdrop inside the centre tile is a Material 3 Expressive shape (`dr-shape is-clover`, 220px). Whole-slide variant: `is-mint` slide background with white panels on it (Clean Architecture slides).
 - Logo grid: logos in full colour on `green-tint` tiles, 3×2.
 
 #### VersusSplit
@@ -530,10 +529,9 @@ Two opposing ideas side by side: white half vs green half, with a lime "vs" disc
 
 - Left half `surface` with the name in `green` 120px/700; right half a `green` panel inset 24px from the edges with `radius-card` corners, name in `on-green`.
 - Descriptions 28px (`ink-muted` / `on-green`); traits as `dr-badge` (green-tint on white, lime on green).
-- 160px `lime` disc with "vs" in `on-lime`, centred on the seam.
+- 180px `lime` sunny shape (`dr-shape is-sunny is-lime`) with "vs" in `on-lime`, centred on the seam.
 - Put the "good"/default side on the left (white), the problem/twist on the right (green).
 - Header variant for denser comparisons: two `green-tint` pills as column headers with bullets under each (ProtoBuf vs FlatBuffers).
-
 
 ## 10. Imagery
 
@@ -550,5 +548,6 @@ Two opposing ideas side by side: white half vs green half, with a lime "vs" disc
 - [ ] Highlights and coloured text are ≥ 24px; small text is ink/ink-soft/ink-muted.
 - [ ] Green slides are ≤ ~20% of the deck; demos numbered in order.
 - [ ] Code uses `dr-code` with the five syntax colours, ≤ 10 lines at `code-l` or ≤ 25 at `code-s`.
+- [ ] Discs, markers, dots and image backdrops use Material 3 Expressive shapes, varied between siblings.
 - [ ] No shadows, extra gradients, left-border cards, decorative emoji or invented logos.
 - [ ] The deck ends with `KeyTakeaways` (optional) and the `ClosingSlide` "Thankyou."
