@@ -1,0 +1,64 @@
+name: Showcase site
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check every linked file exists
+        run: |
+          missing=0
+          for f in index.html DESIGN.md README.md llms.txt LICENSE tokens/tokens.css tokens/tokens.json css/slides.css examples/deck.html docs/banner.png; do
+            [ -f "$f" ] || { echo "::error::Missing $f"; missing=1; }
+          done
+          for href in $(grep -o 'components/[A-Za-z]*\.html' index.html | sort -u); do
+            [ -f "$href" ] || { echo "::error::index.html links to missing $href"; missing=1; }
+          done
+          for img in $(grep -o 'docs/preview/[A-Za-z]*\.png' index.html | sort -u); do
+            [ -f "$img" ] || { echo "::error::index.html links to missing $img"; missing=1; }
+          done
+          python3 -c "import json; json.load(open('tokens/tokens.json'))" || missing=1
+          exit $missing
+
+      - name: Assemble site
+        run: |
+          mkdir _site
+          cp -r index.html DESIGN.md README.md llms.txt LICENSE tokens css components examples docs _site/
+          touch _site/.nojekyll
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
