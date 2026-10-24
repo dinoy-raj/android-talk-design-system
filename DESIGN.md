@@ -148,7 +148,7 @@ One family (`--font-sans`, Google Sans) plus `--font-mono` for code. Headlines a
 | `dr-card` | White outlined feature card |
 | `dr-tile` (`is-blue`, `is-solid`, `is-outline`) | Tinted tiles |
 | `dr-code` (`is-s`) with `.ln .k .t .p .c` spans | Code block with line numbers + syntax colours |
-| `dr-disc`, `dr-numeral`, `dr-code-pill` | Numbered steps |
+| `dr-disc` (`is-cookie9`, `is-cookie12`, `is-clover`, `is-sunny`, `is-flower`, `is-burst`), `dr-numeral`, `dr-code-pill` | Numbered steps; discs take Material 3 Expressive shapes |
 | `dr-node` (`is-box`, `is-blue`, `is-outline`) | Diagram nodes |
 | `dr-table` | Blue-header segmented table (M3 Expressive list style) |
 | `dr-chip` (`is-green`) | Small chip pinned top-right |
@@ -431,11 +431,12 @@ The recap before the closing slide: three statements, each behind a lime check d
 
 `components/NumberedSteps.html` — Discs and numerals
 
-Numbered items as green discs with labels: a 2×2 grid, or a vertical list of four.
+Numbered items as green Material 3 Expressive shapes with labels: a 2×2 grid, or a vertical list of four.
 
 **Consumer provides:** 3–4 short labels (1–3 words), numbered 01–04.
 
-- `dr-disc`: 170px `green` circle, two-digit number in white 32px/500; label in `step-label` (48/56) `ink`, 60px to the right.
+- `dr-disc`: 170px `green` disc, two-digit number in white 32px/500; label in `step-label` (48/56) `ink`, 60px to the right.
+- Shapes: give each disc a Material 3 Expressive shape with a modifier: `is-cookie9`, `is-cookie12`, `is-clover`, `is-sunny`, `is-flower`, `is-burst`. Use a different shape per step (01 cookie9, 02 clover, 03 sunny, 04 flower) so the set reads as playful but even; keep the same size and colour. Without a modifier the disc is a plain circle.
 - 2×2: columns read top-to-bottom (01, 02 left; 03, 04 right).
 - Compact list (droidcon Uganda): 64px discs, labels at 28px, 52px rows.
 - Ordered-pills variant: `dr-numeral` (gradient `blue` → `blue-tint`, 80px) next to a `dr-code-pill` (`green` fill, `lime` text) for code identifiers, staggered diagonally (01 left, 02 indented right).
