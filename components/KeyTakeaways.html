@@ -11,11 +11,12 @@
 <body>
 <!--
 KeyTakeaways (Content) — Recap with checks
-The recap before the closing slide: three statements, each behind a lime check disc.
+The recap before the closing slide: three statements, each led by a green Material 3 Expressive shape.
 
 **Consumer provides:** 3 (max 4) one-line takeaways, each with 1–2 highlights.
 
-- 88px `dr-check` discs (`lime` with a `green` tick); statements at 48/64 with `blue`/`green` highlights; 64px between rows.
+- 88px `dr-shape` markers in `green`, a different shape per row (`is-sunny`, `is-clover`, `is-cookie9`; also `is-cookie12`, `is-flower`, `is-burst`); statements at 48/64 with `blue`/`green` highlights; 64px between rows.
+- `dr-shape is-lime` / `is-blue` change the fill; on white keep `green` or `blue` so the marker stays visible.
 - One line each; if it wraps, cut words.
 - Place immediately before `ClosingSlide`. Same content can open the talk as a promise ("By the end you'll…").
 -->
@@ -23,7 +24,7 @@ The recap before the closing slide: three statements, each behind a lime check d
 
 <span class="dr-tag">Key Takeaways</span>
 <div style="position:absolute;left:200px;top:250px;width:1500px;display:flex;flex-direction:column;gap:64px">
-<div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px">Keep inference <span class="hl-green">on device</span>: faster, private, offline</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px"><span class="hl-blue">Quantize</span> before you ship: smaller, faster, cheaper</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-check"></span><div style="font-size:48px;line-height:64px">Use <span class="hl-blue">LoRA</span> to specialise a <span class="hl-green">tiny model</span> for your domain</div></div>
+<div style="display:flex;align-items:center;gap:56px"><span class="dr-shape is-sunny"></span><div style="font-size:48px;line-height:64px">Keep inference <span class="hl-green">on device</span>: faster, private, offline</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-shape is-clover"></span><div style="font-size:48px;line-height:64px"><span class="hl-blue">Quantize</span> before you ship: smaller, faster, cheaper</div></div><div style="display:flex;align-items:center;gap:56px"><span class="dr-shape is-cookie9"></span><div style="font-size:48px;line-height:64px">Use <span class="hl-blue">LoRA</span> to specialise a <span class="hl-green">tiny model</span> for your domain</div></div>
 </div>
 
 </div></div>

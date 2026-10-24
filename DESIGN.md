@@ -123,10 +123,10 @@ One family (`--font-sans`, Google Sans) plus `--font-mono` for code. Headlines a
 | `--space-l` | 72px | Inset of topic tags from the top and left edges. |
 | `--space-xl` | 128px | Left content margin for headlines, titles and bullets. |
 | `--grid-cell` | 528px | Pitch of the background grid on statement slides (lines every 528px, 274px row offset). |
-| `--radius-node` | 8px | Diagram boxes and table corners. |
-| `--radius-tile` | 12px | Tinted tiles (mint, blue) and logo tiles. |
+| `--radius-node` | 8px | Diagram boxes. |
+| `--radius-tile` | 12px | Inner corners of table rows (the segmented list). |
 | `--radius-code` | 24px | Code blocks and screenshot frames. |
-| `--radius-card` | 32px | White outlined feature cards. |
+| `--radius-card` | 32px | White outlined feature cards, every tinted tile (mint, blue, solid, outline), callout boxes, the agenda fact tile and the table's outer corners. |
 | `--radius-pill` | 999px | Every tag, caption pill, chip and the speaker pill. |
 
 - Left content margin **128px**; topic tags inset **72px** from top and left; headlines start **120px** from the top.
@@ -156,6 +156,7 @@ One family (`--font-sans`, Google Sans) plus `--font-mono` for code. Headlines a
 | `dr-ichip` (`is-green`) | Lime chip inside running text |
 | `dr-opill` | Outline fact pill |
 | `dr-check` (`is-s`) | Lime check disc |
+| `dr-shape` + `is-<shape>` (`is-lime`, `is-blue`) | Material 3 Expressive shape as a bullet marker (88px, green by default) |
 | `dr-cap` | Green caption pill under a panel |
 | `dr-phone` | Phone frame for screenshots |
 
@@ -178,7 +179,7 @@ The talk outline: 3–6 numbered rows, the current section highlighted, with an 
 - Rows 136px tall; numbers in 80px discs (`dr-disc` sized down). Done/current items use solid `green` discs; upcoming items use `green-wash` discs with `green` numbers and `ink-muted` labels.
 - Current row: `green-tint` pill background plus a `lime` "Now" badge.
 - Labels in `step-label` (48/56).
-- Fact tile: `green` block, `radius-tile`, a large white number (120px/700) and a 36px label.
+- Fact tile: `green` block, `radius-card`, a large white number (120px/700) and a 36px label.
 - Re-use the same slide between sections with the next row highlighted, as a progress marker.
 
 #### ClosingSlide
@@ -343,7 +344,7 @@ A highlighted aside beneath bullets: `green-tint` for tips, `blue-tint` for note
 
 **Consumer provides:** the kind (Tip, Note, Gotcha) and one or two sentences.
 
-- Box: full content width, `radius-tile`, 44/56 padding; text 34/52 with highlights.
+- Box: full content width, `radius-card`, 44/56 padding; text 34/52 with highlights.
 - Label: `dr-badge` — `lime` "Tip ☺" on green-tint; white "Note" with `blue` text on blue-tint.
 - Inline API names as a green `dr-ichip` in the mono family.
 - At most two callouts per slide; never a coloured left border.
@@ -419,11 +420,12 @@ Hand-built architecture and flow diagrams from pills and soft boxes joined by th
 
 `components/KeyTakeaways.html` — Recap with checks
 
-The recap before the closing slide: three statements, each behind a lime check disc.
+The recap before the closing slide: three statements, each led by a green Material 3 Expressive shape.
 
 **Consumer provides:** 3 (max 4) one-line takeaways, each with 1–2 highlights.
 
-- 88px `dr-check` discs (`lime` with a `green` tick); statements at 48/64 with `blue`/`green` highlights; 64px between rows.
+- 88px `dr-shape` markers in `green`, a different shape per row (`is-sunny`, `is-clover`, `is-cookie9`; also `is-cookie12`, `is-flower`, `is-burst`); statements at 48/64 with `blue`/`green` highlights; 64px between rows.
+- `dr-shape is-lime` / `is-blue` change the fill; on white keep `green` or `blue` so the marker stays visible.
 - One line each; if it wraps, cut words.
 - Place immediately before `ClosingSlide`. Same content can open the talk as a promise ("By the end you'll…").
 
@@ -515,7 +517,7 @@ Soft tinted tiles for grouping concepts, logos or options; the centre tile can c
 
 - `dr-tile` on `green-tint`; `is-blue` on `blue-tint`; `is-outline` = white with a `green-tint` 2px border; `is-solid` = `green` with white content for the one emphasised item.
 - Tile label in `green` (or `blue` on blue tiles) at 28–36px/500; description 22px `ink`.
-- Corners `radius-tile`. Whole-slide variant: `is-mint` slide background with white panels on it (Clean Architecture slides).
+- Corners `radius-card` (32px) on every tile, including the inner logo or emphasis block (24px+). Whole-slide variant: `is-mint` slide background with white panels on it (Clean Architecture slides).
 - Logo grid: logos in full colour on `green-tint` tiles, 3×2.
 
 #### VersusSplit

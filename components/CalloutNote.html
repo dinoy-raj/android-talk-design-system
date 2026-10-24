@@ -15,7 +15,7 @@ A highlighted aside beneath bullets: `green-tint` for tips, `blue-tint` for note
 
 **Consumer provides:** the kind (Tip, Note, Gotcha) and one or two sentences.
 
-- Box: full content width, `radius-tile`, 44/56 padding; text 34/52 with highlights.
+- Box: full content width, `radius-card`, 44/56 padding; text 34/52 with highlights.
 - Label: `dr-badge` — `lime` "Tip ☺" on green-tint; white "Note" with `blue` text on blue-tint.
 - Inline API names as a green `dr-ichip` in the mono family.
 - At most two callouts per slide; never a coloured left border.
@@ -24,9 +24,9 @@ A highlighted aside beneath bullets: `green-tint` for tips, `blue-tint` for note
 
 <span class="dr-tag">Prefix Caching</span>
 <ul class="dr-bullets" style="position:absolute;top:220px;left:110px;width:1700px"><li>Caches the processed state of a recurring <span class="hl-blue">prompt prefix</span> so only the new suffix is processed.</li></ul>
-<div style="position:absolute;left:150px;top:440px;width:1620px;border-radius:12px;background:var(--green-tint);padding:44px 56px;display:flex;gap:40px;align-items:flex-start">
+<div style="position:absolute;left:150px;top:440px;width:1620px;border-radius:32px;background:var(--green-tint);padding:44px 56px;display:flex;gap:40px;align-items:flex-start">
 <span class="dr-badge is-lime" style="height:52px;font-size:24px;padding:0 28px;flex:none">Tip ☺</span><div style="font-size:34px;line-height:52px">Put the <span class="hl-green">static</span> instructions and examples first and the user's input last, so the prefix stays identical across calls.</div></div>
-<div style="position:absolute;left:150px;top:720px;width:1620px;border-radius:12px;background:var(--blue-tint);padding:44px 56px;display:flex;gap:40px;align-items:flex-start">
+<div style="position:absolute;left:150px;top:720px;width:1620px;border-radius:32px;background:var(--blue-tint);padding:44px 56px;display:flex;gap:40px;align-items:flex-start">
 <span class="dr-badge is-blue" style="height:52px;font-size:24px;padding:0 28px;flex:none;background:var(--surface)">Note</span><div style="font-size:34px;line-height:52px">The cache is evicted <span class="hl-blue">least-recently-used</span> first; call <span class="dr-ichip is-green" style="font-family:var(--font-mono);font-size:28px">clearCaches()</span> to purge it.</div></div>
 
 </div></div>
